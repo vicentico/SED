@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Template.Domain.Model.Area">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAACAAAEAAAAAAAAAAAAAAAAAIAAAAgA=</HashCode>
+      <FileName>Model\Area.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.Email">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAAgAAAAAAAAAFAAAAAAAgABAAAAAAEAA=</HashCode>
+      <FileName>Model\Email.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.Emp_Eval" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwAABAAgAAAEAAAAAAAAAAAAAQAAAAIAAAIAAAAAA=</HashCode>
+      <FileName>Model\Emp_Eval.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.Empleado" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAICgAAAAAAAAAAAAAAAAAAAEIQkAAgI=</HashCode>
+      <FileName>Model\Empleado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.Eval_Pregunta" Collapsed="true">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAACAQAAAAAAAAAAAAAAAAIAAAIAAAAAI=</HashCode>
+      <FileName>Model\Eval_Pregunta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.Evaluacion" Collapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAgAAIACgAAEAAAABAAAAAAAAAAAAIAAAAgQ=</HashCode>
+      <FileName>Model\Evaluacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.Icono" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAgAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Icono.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.Menu" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACSAAAAAAAAAAAAAAAABAAAAQAAAAQgCAAAAACQAAA=</HashCode>
+      <FileName>Model\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.Respuesta" Collapsed="true">
+    <Position X="4" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACBAAAAAIAAQAAAAAAAAAAAABAAAAAAAACAAAgA=</HashCode>
+      <FileName>Model\Respuesta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.Pregunta">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAgAAIAAAAAEAAAEAAAAAAAAAAAAAMAAAAgQ=</HashCode>
+      <FileName>Model\Pregunta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.Rol" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAhAABAAAAAAAgAAAAIAAAAAA=</HashCode>
+      <FileName>Model\Rol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.RolMenu" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAASAAAAAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAAAgAA=</HashCode>
+      <FileName>Model\RolMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.RolUsuario" Collapsed="true">
+    <Position X="2.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAgCAAAAEAAAAgAA=</HashCode>
+      <FileName>Model\RolUsuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.Tipo" Collapsed="true">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAACCAAAEAIAAAAAAAAAAAAAAAIAAAAgA=</HashCode>
+      <FileName>Model\Tipo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Domain.Model.Usuario" Collapsed="true">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEABAACAAAAICAABAgAAAAAAAAAAiAAAAYAAAAAA=</HashCode>
+      <FileName>Model\Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

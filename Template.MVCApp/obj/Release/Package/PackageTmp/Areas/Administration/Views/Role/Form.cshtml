@@ -1,0 +1,101 @@
+﻿@model Rol
+@{
+    var Id = Utility.GetRandomId();
+    var Icono = Model == null ? "icon-plus-sign-alt" : "icon-edit";
+    var Titulo = Model == null ? "Creación" : "Edición";
+
+    var RoleId = Model == null ? 0 : Model.Id;
+    var Nombre = Model == null ? "" : Model.Nombre;
+    var Descripcion = Model == null ? "" : Model.Descripcion;
+    var Activo = Model != null && Model.Activo;
+}
+
+<div id="@Id">
+    <div class="modal-header">
+        <h4><i class="@Icono mr8 text-danger"></i>@Titulo de un Rol</h4>
+        <hr/>
+    </div>
+    <div class="modal-body">
+        @Html.Hidden("Id", RoleId)
+        <div class="row-fluid">
+            <div class="span12">
+                @Html.Label("Nombre", "Nombre de Rol")
+                @Html.TextBox("Nombre", Nombre, new {@class = "input-block-level", placeholder = "Nombre de Rol", @required = true, @data_req_message = "Debe ingresar un <strong>Nombre</strong> para el <strong>Nuevo Rol</strong>."})
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                @Html.Label("Descripcion", "Descripción")
+                @Html.TextBox("Descripcion", Descripcion, new {@class = "input-block-level", placeholder = "Descripción de Rol", @required = true, @data_req_message = "Debe ingresar una <strong>Descripción</strong> para el <strong>Nuevo Rol</strong>."})
+            </div>
+        </div>
+        @if (Model != null)
+        {
+            <div class="row-fluid">
+                <div class="span12">
+                    @Html.Label("Estado", "Estado")
+                    @Html.CheckBox("Estado", Activo, new {@checked = true})
+                </div>
+            </div>
+        }
+    </div>
+    <div class="modal-footer">
+        <hr />
+        <a href="javascript:void(0);" class="btn btn-warning pull-left" data-dismiss="modal">
+            <i class="icon-remove mr8"></i>Cancelar
+        </a>
+        <a id="btnGuardar" href="javascript:void(0);" class="btn btn-success pull-right">
+            <i class="icon-save mr8"></i>Guardar
+        </a>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        var Modal_ = $("#@Id");
+        var Body_ = $(Modal_).find(".modal-body");
+        var RoleId = $(Modal_).find("#Id");
+        var Nombre = $(Modal_).find("#Nombre");
+        var Descripcion = $(Modal_).find("#Descripcion");
+        var Estado = $(Modal_).find("#Estado");
+        var btnGuardar = $(Modal_).find("#btnGuardar");
+
+        $(Estado).bootstrapToggle({
+            on: "<i class='icon-ok mr8'></i>Activo",
+            off: "<i class='icon-remove mr8'></i>Inactivo",
+            onstyle: "success",
+            offstyle: "danger",
+            width: "100px"
+        });
+
+        $(btnGuardar).click(function () {
+            var ValidForm = App.ValidateForm(Body_);
+
+            if (ValidForm) {
+                App.AjaxCall({
+                    Url: '@Url.Action("Form")',
+                    Metodo: "POST",
+                    ConvertirParametros: true,
+                    ParametrosAjax: {
+                        Id: $(RoleId).val(),
+                        Nombre: $(Nombre).val(),
+                        Descripcion: $(Descripcion).val(),
+                        Activo: $(Estado).prop("checked")
+                    },
+                    Callback: function (Resultado) {
+                        if (Resultado && !Resultado.Error && Resultado.Message) {
+                            $(modal).on("hidden", function () {
+                                $("#btnQuery").click();
+                            });
+
+                            $(modal).modal("hide");
+                            App.ShowMessage(Resultado.Message, MessageType.Success);
+                        }
+                        if (Resultado && Resultado.Error && Resultado.Message) App.ShowMessage(Resultado.Message, MessageType.Error);
+                    }
+                });
+            }
+        });
+    });
+</script>
+

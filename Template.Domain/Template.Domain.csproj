@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{172C7695-C7E5-4443-BE22-6AE955AAA586}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Template.Domain</RootNamespace>
+    <AssemblyName>Template.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="dotMemory.Unit, Version=103.0.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.dotMemoryUnit.2.3.20160517.113140\lib\dotMemory.Unit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums\EmailTemplate.cs" />
+    <Compile Include="Enums\RoleType.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Model\Area.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Email.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Empleado.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Emp_Eval.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Evaluacion.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Eval_Pregunta.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Icono.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Menu.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Pregunta.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Respuesta.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rol.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RolMenu.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RolUsuario.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TemplateModel.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Model\Tipo.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Usuario.cs">
+      <DependentUpon>TemplateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Model\TemplateModel.tt">
+      <SubType>Designer</SubType>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TemplateModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,214 @@
+/*#region Paleta de Aplicación. */
+/*#endregion */
+/*#region Fondo.*/
+/*#endregion*/
+/*#region Logo & User Picture.*/
+img.logo {
+  max-width: 140px;
+}
+/*#endregion*/
+/*#region Botones. */
+.btn.disabled {
+  color: #ffffff !important;
+}
+/*#region btn-primary */
+.btn-primary {
+  background-color: #005eb8;
+  color: #ffffff;
+}
+.btn-group.open .btn-primary.dropdown-toggle,
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #004485;
+}
+.btn-primary.btn-outline {
+  border: 1px solid #005eb8;
+  background-color: #ffffff;
+  color: #005eb8;
+  font-weight: bold;
+}
+.btn-group.open .btn-primary.btn-outline.dropdown-toggle,
+.btn-primary.btn-outline:hover,
+.btn-primary.btn-outline:focus {
+  background-color: #005eb8 !important;
+  color: #ffffff !important;
+}
+/*#endregion */
+/*#region btn-secondary */
+.btn-secondary {
+  background-color: #00c1d5;
+  color: #ffffff;
+}
+.btn-group.open .btn-secondary.dropdown-toggle,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: #0093a2;
+  color: #ffffff;
+}
+.btn-secondary.btn-outline {
+  border: 1px solid #00c1d5;
+  background-color: #ffffff;
+  color: #00c1d5;
+  font-weight: bold;
+}
+.btn-group.open .btn-secondary.btn-outline.dropdown-toggle,
+.btn-secondary.btn-outline:hover,
+.btn-secondary.btn-outline:focus {
+  background-color: #00c1d5 !important;
+  color: #ffffff !important;
+}
+/*#endregion */
+/*#endregion */
+/*#region Paneles. */
+/*#region panel-primary. */
+.panel-primary {
+  border: 1px solid #005eb8;
+}
+.panel-primary .panel-heading {
+  color: #ffffff;
+  background-color: #005eb8;
+  border-color: #005eb8;
+}
+/*#endregion */
+/*#region panel-secondary. */
+.panel-secondary {
+  border: 1px solid #00c1d5;
+}
+.panel-secondary .panel-heading {
+  color: #ffffff;
+  background-color: #00c1d5;
+  border-color: #00c1d5;
+}
+/*#endregion */
+/*#endregion */
+/*#region Menú */
+a#pin {
+  background-color: #005eb8;
+}
+div#menu {
+  background-color: #005eb8;
+  border-right: 1px solid #005eb8;
+}
+div#menu ul > li {
+  border-left: 4px solid #005eb8;
+}
+#barra .dropdown-menu > li > a:hover,
+#barra .dropdown-menu > li > a:focus,
+#barra .dropdown-menu > li > a:hover .text-danger,
+#barra .dropdown-menu > li > a:focus .text-danger,
+#barra .dropdown-submenu:hover > a,
+#barra .dropdown-submenu:focus > a {
+  background-color: #00c1d5 !important;
+  color: #ffffff !important;
+}
+div#menu ul > li.active {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-color: #fdcd38;
+}
+/*#endregion */
+/*#region Loader & Modal. */
+div#loader,
+#dialog-box-mask {
+  background-color: #005eb8 !important;
+}
+.modal-backdrop {
+  background-color: #000000;
+}
+/*#endregion */
+/*#region Helpers. */
+.text-primary {
+  color: #005eb8;
+}
+/*#endregion */
+/*#region BootGrid. */
+.bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
+.bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
+.bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus,
+.bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus {
+  background-color: #00c1d5 !important;
+  color: #ffffff !important;
+}
+.bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu li.active > .dropdown-item,
+.bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu li.active > .dropdown-item,
+.bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu li.active > .dropdown-item,
+.bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu li.active > .dropdown-item {
+  background-color: #005eb8 !important;
+  color: #ffffff !important;
+}
+/*#endregion */
+/*#region AutoComplete. */
+.autocomplete-suggestion strong {
+  color: #005eb8;
+}
+.autocomplete-suggestion:hover {
+  background-color: #005eb8;
+  color: #ffffff;
+}
+.autocomplete-selected {
+  background-color: #005eb8;
+  color: #ffffff;
+}
+/*#endregion */
+/*#region JSON Formatter. */
+.json-value {
+  color: #004485;
+}
+/*#endregion */
+/*#region Bootstrap Select. */
+.bootstrap-select > .dropdown-menu.open > .dropdown-menu.inner > li > a:hover {
+  background-color: #00c1d5;
+  color: #ffffff;
+}
+/*#endregion */
+/*#region Selección. */
+::selection {
+  background-color: #00c1d5;
+  color: #ffffff;
+}
+::-moz-selection {
+  background-color: #00c1d5;
+  color: #ffffff;
+}
+/*#endregion */
+/*#region DateRangePicker. */
+.daterangepicker .ranges li.active {
+  background-color: #005eb8 !important;
+  border-color: #0054a4 !important;
+  color: #ffffff !important;
+}
+.daterangepicker .ranges li:hover {
+  background-color: #005eb8 !important;
+  border-color: #0054a4 !important;
+  color: #ffffff !important;
+}
+.daterangepicker .ranges li {
+  color: #005eb8 !important;
+}
+.datepicker table tr td.active,
+.datepicker table tr td.active.disabled,
+.datepicker table tr td.active.disabled:hover,
+.datepicker table tr td.active:hover,
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+  background-color: #005eb8 !important;
+  color: #ffffff !important;
+}
+/*#endregion */
+/*#region ScrollBars. */
+*::-webkit-scrollbar-track {
+  background-color: #b3b3b3 !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #005eb8 !important;
+}
+/*#endregion */
+/*#region SelectPicker. */
+.bootstrap-select li.selected,
+.bootstrap-select li.active > a {
+  background-color: #005eb8;
+  color: #ffffff;
+}
+.bootstrap-select li.selected > a {
+  color: #ffffff;
+}
+/*#endregion */

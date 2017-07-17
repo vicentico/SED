@@ -1,0 +1,230 @@
+﻿@using Template.MVCApp.Engine
+@using Template.Service.DAO
+@{
+    string Titulo = ViewBag.Titulo;
+    var VersionCache = Utility.GetRandomId();
+	var BreadCrumb = ViewBag.BreadCrumb ?? "";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Carlos Poblete Escalona">
+
+    <title>Plantilla :: @Titulo</title>
+
+    <link rel="stylesheet" href="@Url.Content("~/public/css/bootplus/bootplus.css")"/>
+    <link rel="stylesheet" href="@Url.Content("~/public/css/animate/animate.css")"/>
+    <link rel="stylesheet" href="@Url.Content("~/public/css/toastr/toastr.css")"/>
+    <link rel="stylesheet" href="@Url.Content("~/public/css/toastr/jquery.dialogbox.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/public/css/animate/waves.css")"/>
+    <link rel="stylesheet" href="@Url.Content("~/public/fonts/fontawesome-3.2.1/font-awesome.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/public/fonts/fontawesome-3.2.1/font-awesome-ie7.css")"/>
+    <link rel="stylesheet" href="@Url.Content("~/public/css/bootgrid/jquery.bootgrid.css")"/>
+	<link rel="stylesheet" href="@Url.Content("~/public/css/bootstraptoggle/bootstraptoggle.css")"/>
+	<link rel="stylesheet" href="@Url.Content("~/public/css/selectpicker/selectpicker.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/public/css/application/application.css")?v=@VersionCache"/>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="@Url.Content("~/public/img/icon/apple-icon-57x57.png")">
+    <link rel="apple-touch-icon" sizes="60x60" href="@Url.Content("~/public/img/icon/apple-icon-60x60.png")">
+    <link rel="apple-touch-icon" sizes="72x72" href="@Url.Content("~/public/img/icon/apple-icon-72x72.png")">
+    <link rel="apple-touch-icon" sizes="76x76" href="@Url.Content("~/public/img/icon/apple-icon-76x76.png")">
+    <link rel="apple-touch-icon" sizes="114x114" href="@Url.Content("~/public/img/icon/apple-icon-114x114.png")">
+    <link rel="apple-touch-icon" sizes="120x120" href="@Url.Content("~/public/img/icon/apple-icon-120x120.png")">
+    <link rel="apple-touch-icon" sizes="144x144" href="@Url.Content("~/public/img/icon/apple-icon-144x144.png")">
+    <link rel="apple-touch-icon" sizes="152x152" href="@Url.Content("~/public/img/icon/apple-icon-152x152.png")">
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/public/img/icon/apple-icon-180x180.png")">
+    <link rel="icon" type="image/png" sizes="192x192" href="@Url.Content("~/public/img/icon/android-icon-192x192.png")">
+    <link rel="icon" type="image/png" sizes="32x32" href="@Url.Content("~/public/img/icon/favicon-32x32.png")">
+    <link rel="icon" type="image/png" sizes="96x96" href="@Url.Content("~/public/img/icon/favicon-96x96.png")">
+    <link rel="icon" type="image/png" sizes="16x16" href="@Url.Content("~/public/img/icon/favicon-16x16.png")">
+    <link rel="manifest" href="@Url.Content("~/public/img/icon/manifest.json")">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="@Url.Content("~/public/img/icon/ms-icon-144x144.png")">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="@Url.Content("~/public/js/jquery/modernizr.js")"></script>
+    <script src="@Url.Content("~/public/js/jquery/jquery-1.10.2.js")"></script>
+</head>
+<body>
+	<div id="loader">
+		<div></div>
+	</div>
+
+	<div class="wrapper">
+		<div class="sidebar-wrapper">
+			<div class="userInfo">
+				<img alt="Usuario" src="@User.GetProfilePicture()" />
+				<span class="username mt8 mb8">@User.GetFullName()</span>
+			</div>
+
+			@if (User.Identity.IsAuthenticated)
+			{
+				var Roles_ = Roles.GetRolesForUser();
+
+				if (Roles_.Length > 0)
+				{
+					var Menu_ = UserService.GetMenuItems(User.Identity.Name);
+
+					if (Menu_ != null && Menu_.Count > 0)
+					{
+						var Menu__ = WebHelper.CreateMenuViewModel(null, Menu_);
+
+						if (Menu__ != null && Menu__.Count > 0)
+						{
+							<div class="divider"></div>
+							Html.RenderPartial("_Menu", Menu__);
+						}
+					}
+				}
+			}
+
+		</div>
+		<div class="content-wrapper">
+			<div id="barra" class="navbar">
+				<div class="navbar-inner">
+					<div class="container-fluid">
+						<a id="pin" href="javascript:void(0);" class="pull-left" data-placement="right" title="Mostrar/Ocultar Menú">
+							<i class="icon-th-large"></i>
+						</a>
+						<a href="javascript:void(0);" class="brand">
+							<img src="@Url.Content("~/public/img/logo.png")" alt="">
+						</a>
+						<div class="pull-right">
+							<div class="btn-group hidden">
+								<a data-toggle="dropdown" href="javascript:void(0);" class="btn btn-primary dropdown-toggle">
+									<i class="icon-bell-alt pr4"></i>
+									<span class="badge badge-important">4</span>
+									<i class="icon-chevron-down pl4"></i>
+								</a>
+								<ul class="dropdown-menu" style="width: 320px; right: 0; left: auto;">
+									<li>
+										<a href="javascript:void(0);" style="white-space: normal;">
+											<div>
+												<strong>Atraso</strong><span class="pull-right text-muted"><em>12-08-2015</em></span>
+												<div class="text-justify">Atrasado la Recepción de información de Metlife / APV / Pagos desde el 06/04/2015</div>
+											</div>
+										</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="javascript:void(0);" style="white-space: normal;">
+											<div>
+												<strong>Atraso</strong><span class="pull-right text-muted"><em>12-08-2015</em></span>
+												<div class="text-justify">Atrasado la Devolución de Metlife / APV / Rescate desde el 13/04/2015</div>
+											</div>
+										</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="javascript:void(0);" style="white-space: normal;">
+											<div>
+												<strong>Atraso</strong><span class="pull-right text-muted"><em>12-08-2015</em></span>
+												<div class="text-justify">Atrasado la Revisión de RSA / APV / Póliza al 17/04/2015</div>
+											</div>
+										</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="javascript:void(0);" style="white-space: normal;">
+											<div>
+												<strong>Atraso</strong><span class="pull-right text-muted"><em>12-08-2015</em></span>
+												<div class="text-justify">Atrasado la Recepción de Onformación de RSA / APV / Sieniestro al 23/04/2015</div>
+											</div>
+										</a>
+									</li>
+									<li class="divider"></li>
+									<li class="text-center">
+										<a href="javascript:void(0);">
+											<span class="text-bold">Ver Todas</span>
+											<i class="icon-chevron-right"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="btn-group">
+								<a data-toggle="dropdown" href="javascript:void(0);" class="btn btn-primary dropdown-toggle">
+									<i class="icon-user pr4"></i>
+									<i class="icon-chevron-down"></i>
+								</a>
+								<ul class="dropdown-menu" style="right: 0; left: auto;">
+									<li>
+										<a id="MyProfile" href="javascript:void(0);"><i class="icon-info-sign"></i>Perfil</a>
+									</li>
+									<li>
+										<a id="ChangePassword" href="javascript:void(0);"><i class="icon-key"></i>Cambiar Mi Contraseña</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="@Url.Action("SignOut", "Access", new {Area = ""})" class="load"><i class="icon-signout"></i>Cerrar sesión</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="container-fluid pt8 pl8 pr8">
+							@if (!string.IsNullOrEmpty(BreadCrumb))
+							{
+								<ul class="breadcrumb mb16">
+									@Html.Raw(BreadCrumb.ToString())
+								</ul>
+							}
+							@RenderBody()
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="main-modal" class="modal hide animated bounceInDown" tabindex="-1"></div>
+	<div id="DialogConfirm"></div>
+
+	<script src="@Url.Content("~/public/js/jquery/jquery.cookie.js")"></script>
+	<script src="@Url.Content("~/public/js/bootplus/bootplus.js")"></script>
+	<script src="@Url.Content("~/public/js/toastr/jquery.dialogbox.js")"></script>
+	<script src="@Url.Content("~/public/js/toastr/toastr.js")"></script>
+	<script src="@Url.Content("~/public/js/jquery/waves.js")"></script>
+	<script src="@Url.Content("~/public/js/bootgrid/jquery.bootgrid.js")"></script>
+	<script src="@Url.Content("~/public/js/bootgrid/jquery.bootgrid.icons.js")"></script>
+	<script src="@Url.Content("~/public/js/bootstraptoggle/bootstraptoggle.js")"></script>
+	<script src="@Url.Content("~/public/js/filestyle/bootstrap-filestyle.js")"></script>
+	<script src="@Url.Content("~/public/js/jquery/jquery.pwstrength.js")"></script>
+    <script src="@Url.Content("~/public/js/selectpicker/selectpicker.js")"></script>
+	<script src="@Url.Content("~/public/js/conf/conf.js")?v=@VersionCache"></script>
+	<script src="@Url.Content("~/public/js/application/application.js")?v=@VersionCache"></script>
+
+	@Html.Partial("_Flash")
+
+	<script>
+		var MyProfile = $("#MyProfile");
+		var ChangePassword = $("#ChangePassword");
+
+		$(MyProfile).click(function (e) {
+			e.preventDefault();
+
+			App.ShowModalWithOptions({
+				Url: "@Url.Action("MyProfile", "User", new { Area = "Administration" })"
+			});
+		});
+
+		$(ChangePassword).click(function (e) {
+			e.preventDefault();
+
+			App.ShowModalWithOptions({
+				Url: "@Url.Action("ChangePassword", "User", new { Area = "Administration" })"
+			});
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+﻿/*!
+ * Waves v0.6.0
+ * http://fian.my.id/Waves
+ *
+ * Copyright 2014 Alfiana E. Sibuea and other contributors
+ * Released under the MIT license
+ * https://github.com/fians/Waves/blob/master/LICENSE
+ */
+.waves-effect {
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	cursor: pointer;
+	/*display: inline-block;*/
+	overflow: hidden;
+	position: relative;
+	transition: all .3s ease-out;
+	user-select: none;
+	vertical-align: middle;
+	will-change: opacity, transform;
+	z-index: 1;
+}
+
+.waves-effect .waves-ripple {
+	-webkit-transform: scale(0);
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 50%;
+	height: 20px;
+	margin-left: -10px;
+	margin-top: -10px;
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	transform: scale(0);
+	transition: all 0.3s ease-out;
+	transition-property: opacity, -webkit-transform;
+	transition-property: transform, opacity;
+	transition-property: transform, opacity, -webkit-transform;
+	width: 20px;
+}
+
+.waves-effect.waves-light .waves-ripple { background-color: rgba(255, 255, 255, 0.5); }
+
+.waves-effect.waves-red .waves-ripple { background-color: rgba(244, 67, 54, 0.7); }
+
+.waves-effect.waves-yellow .waves-ripple { background-color: rgba(255, 235, 59, 0.7); }
+
+.waves-effect.waves-orange .waves-ripple { background-color: rgba(255, 152, 0, 0.7); }
+
+.waves-effect.waves-purple .waves-ripple { background-color: rgba(156, 39, 176, 0.7); }
+
+.waves-effect.waves-green .waves-ripple { background-color: rgba(76, 175, 80, 0.7); }
+
+.waves-effect.waves-teal .waves-ripple { background-color: rgba(0, 150, 136, 0.7); }
+
+.waves-effect input[type="button"], .waves-effect input[type="reset"], .waves-effect input[type="submit"] {
+	background: none;
+	border: 0;
+	font-size: inherit;
+	font-style: normal;
+	text-transform: inherit;
+}
+
+.waves-notransition { transition: none !important; }
+
+.waves-circle {
+	-webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+.waves-input-wrapper {
+	border-radius: 0.2em;
+	vertical-align: bottom;
+}
+
+.waves-input-wrapper .waves-button-input {
+	left: 0;
+	position: relative;
+	top: 0;
+	z-index: 1;
+}
+
+.waves-circle {
+	-webkit-mask-image: none;
+	border-radius: 50%;
+	height: 2.5em;
+	line-height: 2.5em;
+	text-align: center;
+	width: 2.5em;
+}
+
+.waves-block { display: block; }
+
+a.waves-effect .waves-ripple { z-index: -1; }

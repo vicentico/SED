@@ -1,0 +1,69 @@
+﻿@{
+    string Titulo = ViewBag.Titulo;
+    var VersionCache = Utility.GetRandomId();
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Carlos Poblete Escalona">
+
+    <title>Plantilla :: @Titulo</title>
+
+    <link rel="stylesheet" href="@Url.Content("~/public/css/bootplus/bootplus.css")">
+    <link rel="stylesheet" href="@Url.Content("~/public/css/animate/animate.css")">
+    <link rel="stylesheet" href="@Url.Content("~/public/css/toastr/toastr.css")">
+    <link rel="stylesheet" href="@Url.Content("~/public/css/toastr/jquery.dialogbox.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/public/fonts/fontawesome-3.2.1/font-awesome.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/public/fonts/fontawesome-3.2.1/font-awesome-ie7.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/public/css/animate/waves.css")">
+    <link rel="stylesheet" href="@Url.Content("~/public/css/application/application.css")?v=@VersionCache">
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="@Url.Content("~/public/img/icon/apple-icon-57x57.png")">
+    <link rel="apple-touch-icon" sizes="60x60" href="@Url.Content("~/public/img/icon/apple-icon-60x60.png")">
+    <link rel="apple-touch-icon" sizes="72x72" href="@Url.Content("~/public/img/icon/apple-icon-72x72.png")">
+    <link rel="apple-touch-icon" sizes="76x76" href="@Url.Content("~/public/img/icon/apple-icon-76x76.png")">
+    <link rel="apple-touch-icon" sizes="114x114" href="@Url.Content("~/public/img/icon/apple-icon-114x114.png")">
+    <link rel="apple-touch-icon" sizes="120x120" href="@Url.Content("~/public/img/icon/apple-icon-120x120.png")">
+    <link rel="apple-touch-icon" sizes="144x144" href="@Url.Content("~/public/img/icon/apple-icon-144x144.png")">
+    <link rel="apple-touch-icon" sizes="152x152" href="@Url.Content("~/public/img/icon/apple-icon-152x152.png")">
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/public/img/icon/apple-icon-180x180.png")">
+    <link rel="icon" type="image/png" sizes="192x192" href="@Url.Content("~/public/img/icon/android-icon-192x192.png")">
+    <link rel="icon" type="image/png" sizes="32x32" href="@Url.Content("~/public/img/icon/favicon-32x32.png")">
+    <link rel="icon" type="image/png" sizes="96x96" href="@Url.Content("~/public/img/icon/favicon-96x96.png")">
+    <link rel="icon" type="image/png" sizes="16x16" href="@Url.Content("~/public/img/icon/favicon-16x16.png")">
+    <link rel="manifest" href="@Url.Content("~/public/img/icon/manifest.json")">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="@Url.Content("~/public/img/icon/ms-icon-144x144.png")">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="@Url.Content("~/public/js/jquery/modernizr.js")"></script>
+    <script src="@Url.Content("~/public/js/jquery/jquery-1.10.2.js")"></script>
+</head>
+<body>
+    <div id="loader"><div></div></div>
+    <div class="container-fluid body bg" style="padding: 0 8px !important;">
+        <div class="row-fluid">
+            <div class="span12">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <div id="DialogConfirm"></div>
+
+    <script src="@Url.Content("~/public/js/bootplus/bootplus.js")"></script>
+    <script src="@Url.Content("~/public/js/toastr/toastr.js")"></script>
+    <script src="@Url.Content("~/public/js/jquery/jquery.cookie.js")"></script>
+    <script src="@Url.Content("~/public/js/jquery/waves.js")"></script>
+    <script src="@Url.Content("~/public/js/jquery/jquery.pwstrength.js")"></script>
+    <script src="@Url.Content("~/public/js/toastr/jquery.dialogbox.js")"></script>
+    <script src="@Url.Content("~/public/js/conf/conf.js")?v=@VersionCache"></script>
+    <script src="@Url.Content("~/public/js/application/application.js")?v=@VersionCache"></script>
+    @Html.Partial("_Flash")
+</body>
+</html>

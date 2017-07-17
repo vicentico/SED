@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Template.Service.DAO.AreaService" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAADAAAAAABAAAAAABAAACAgAAAAAAAAA=</HashCode>
+      <FileName>DAO\AreaService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Service.DAO.EmailService" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>DAO\EmailService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Service.DAO.Emp_EvalService">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAADEgAAAAFAABAAABAAACAAAAAAAAAAA=</HashCode>
+      <FileName>DAO\Emp_EvalService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Service.DAO.EmpleadoService" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAEAAgAAADAABAQABAAAAAABQAACAgAAAAAAAAA=</HashCode>
+      <FileName>DAO\EmpleadoService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Service.DAO.EvaluacionService" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAADEgAAAAFAEBAAABAAACAEAAAAAAAAA=</HashCode>
+      <FileName>DAO\EvaluacionService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Service.DAO.IconoService" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>DAO\IconoService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Service.DAO.MenuService" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAADgAAAQADAAAAQABQAACAAAAAAAAAAA=</HashCode>
+      <FileName>DAO\MenuService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Service.DAO.PreguntaService" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAADCAAAAABAAAAAABAAACAgABAAAAAAA=</HashCode>
+      <FileName>DAO\PreguntaService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Service.DAO.RoleService" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAADAAQAAABAAAAAABAAACIQAAAAAAAAA=</HashCode>
+      <FileName>DAO\RoleService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Service.DAO.TipoService" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAADAAAAAABAAAAAABAAACAgAAAAAAAAA=</HashCode>
+      <FileName>DAO\TipoService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Service.DAO.UserService" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAEAACAAAAgCAAAAAAhAAAAQABAAAKggAAAAQAAIA=</HashCode>
+      <FileName>DAO\UserService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Service.Helpers.BreadCrumb" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\BreadCrumb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Service.Resources" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.Service.TemplateEntities" Collapsed="true">
+    <Position X="7.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAABAACAAICAgAAAABAAAEAAIAgAAAAAEIQCAAAY=</HashCode>
+      <FileName>TemplateModel.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

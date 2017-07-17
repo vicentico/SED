@@ -1,0 +1,58 @@
+﻿@model Template.Domain.Model.Emp_Eval
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Emp_Eval</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.comentario)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.comentario)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.activo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.activo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Empleado.nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Empleado.nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Evaluacion.nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Evaluacion.nombre)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

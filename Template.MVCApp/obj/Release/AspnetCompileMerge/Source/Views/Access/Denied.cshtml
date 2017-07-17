@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.titulo = "Acceso Denegado";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+<br>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="panels">
+                <div class="span12">
+                    <div class="panel animated flipInY">
+                        <div class="panel-heading text-center text-bold">Lo Sentimos...</div>
+                        <div class="panel-body">
+                            <form novalidate action="" method="post">
+                                <div class="container-fluid no-padding">
+                                    <div class="row-fluid">
+                                        <div class="text-center">
+                                            <img class="logo" alt="" src="@Url.Content("~/Public/img/logo.png")" />
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <ul class="breadcrumb">
+                                            <li>
+                                                <a href="@Url.Action("Index")" data-placement="top" title="Volver a la página de Acceso">Acceso</a>
+                                                <span class="divider">/</span>
+                                            </li>
+                                            <li class="active">Acceso Denegado</li>
+                                        </ul>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span12">
+                                            <div class="alert alert-danger">
+                                                <strong>¡Atención!</strong>
+                                                <br />
+                                                Usted no tiene <strong>Permisos Suficientes</strong> para acceder a la <strong>Página Solicitada</strong>, por favor contáctese con su <strong>Administrador</strong>.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .logo {
+        max-width: 280px !important;
+    }
+
+    .panels {
+        margin: 0 auto;
+        max-width: 640px;
+    }
+
+        .panels .panel {
+            max-width: 320px;
+            margin: 0 auto;
+        }
+</style>
+
+<script>
+    $(function () {
+        var message = "";
+
+        if (message) toastr.error(message);
+
+        $("#usuario").focus();
+
+        $(".btnClear").click(function (e) {
+            e.preventDefault();
+
+            var form = $(this).parents(".panel").find("form");
+
+            App.ClearForm(form);
+        });
+
+        $("#btnRecover").click(function (e) {
+            e.preventDefault();
+            $(Loader).show();
+
+            var form = $(this).parents(".panel").find("form");
+
+            var isValidForm = App.ValidateForm(form);
+
+            if (isValidForm) {
+                $(form).submit();
+            }
+        });
+    });
+</script>

@@ -1,0 +1,46 @@
+﻿@model List<Template.MVCApp.Model.MenuVM>
+
+<ul class="nav">
+    @foreach (var menu in Model)
+    {
+        var IsSubMenu = menu.SubMenu != null && menu.SubMenu.Count > 0;
+        var IsActive = !string.IsNullOrEmpty(Url.MakeActiveClass(menu.Url));
+        var CssClass = "";
+
+        if (IsSubMenu && IsActive)
+        {
+            CssClass = "submenu active";
+        }
+        else if (IsSubMenu)
+        {
+            CssClass = "submenu";
+        }
+        else if (IsActive)
+        {
+            CssClass = "active";
+        }
+
+        <li class="@CssClass">
+            @if (IsSubMenu)
+            {
+                <a href="javascript:void(0);" data-placement="right" title="@menu.Ayuda">
+                    <i class="@menu.Icono"></i>
+                    <span>@menu.Texto</span>
+                    <i class="icon-chevron-down pull-right"></i>
+                </a>
+            }
+            else
+            {
+                <a href="@menu.Url" data-placement="right" title="@menu.Ayuda">
+                    <i class="@menu.Icono"></i>
+                    <span>@menu.Texto</span>
+                </a>
+            }
+
+            @if (menu.SubMenu != null && menu.SubMenu.Count > 0)
+            {
+                Html.RenderPartial("_Menu", menu.SubMenu);
+            }
+        </li>
+    }
+</ul>

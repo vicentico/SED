@@ -1,0 +1,9 @@
+D:\GGaldamesD\Template\Template.Domain\bin\Release\Template.Domain.dll.config
+D:\GGaldamesD\Template\Template.Domain\bin\Release\Template.Domain.dll
+D:\GGaldamesD\Template\Template.Domain\bin\Release\Template.Domain.pdb
+D:\GGaldamesD\Template\Template.Domain\bin\Release\dotMemory.Unit.dll
+D:\GGaldamesD\Template\Template.Domain\bin\Release\System.dll
+D:\GGaldamesD\Template\Template.Domain\bin\Release\dotMemory.Unit.xml
+D:\GGaldamesD\Template\Template.Domain\obj\Release\Template.Domain.csprojResolveAssemblyReference.cache
+D:\GGaldamesD\Template\Template.Domain\obj\Release\Template.Domain.dll
+D:\GGaldamesD\Template\Template.Domain\obj\Release\Template.Domain.pdb

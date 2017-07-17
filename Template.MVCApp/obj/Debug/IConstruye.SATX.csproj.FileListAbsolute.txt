@@ -1,0 +1,17 @@
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\IConstruye.SATX.dll.config
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\IConstruye.SATX.dll
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\IConstruye.SATX.pdb
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\obj\Debug\IConstruye.SATX.dll
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\obj\Debug\IConstruye.SATX.pdb
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\System.Web.Helpers.dll
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\System.Web.Mvc.dll
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\System.Web.Razor.dll
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\System.Web.WebPages.Deployment.dll
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\System.Web.WebPages.dll
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\System.Web.WebPages.Razor.dll
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\Microsoft.Web.Infrastructure.dll
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\obj\Debug\IConstruye.SATX.csprojResolveAssemblyReference.cache
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\Antlr3.Runtime.dll
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\IConstruye.BLL.dll
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\Newtonsoft.Json.dll
+D:\GGaldamesD\IConstruye\Proyectos\SATX\IConstruye.SATX\bin\IConstruye.BLL.pdb

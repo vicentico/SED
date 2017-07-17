@@ -1,0 +1,127 @@
+﻿@model Usuario
+@{
+    var Id = Utility.GetRandomId();
+    var Icono = Model == null ? "icon-plus-sign-alt" : "icon-edit";
+    var Titulo = Model == null ? "Creación" : "Edición";
+
+    var UserId = Model == null ? 0 : Model.Id;
+    var Email = Model == null ? "" : Model.Email;
+    var Nombre = Model == null ? "" : Model.Nombre;
+    var APaterno = Model == null ? "" : Model.Apellido_Paterno;
+    var AMaterno = Model == null ? "" : Model.Apellido_Materno;
+    var Estado = Model != null && Model.Activo;
+
+    var IsNew = Model == null;
+}
+
+<div id="@Id">
+    <div class="modal-header">
+        <h4><i class="@Icono mr8 text-danger"></i>@Titulo de un Usuario</h4>
+        <hr />
+    </div>
+    <div class="modal-body">
+        @Html.Hidden("Id", UserId)
+
+        @if (Model != null)
+        {
+            <div class="row-fluid">
+                <div class="span6">
+                    @Html.Label("Estado", "Estado")
+                    @Html.CheckBox("Estado", Estado, new {@checked = true})
+                </div>
+            </div>
+        }
+
+        <div class="row-fluid">
+            <div class="span12">
+                @Html.Label("Email", "Correo Electrónico")
+                @Html.TextBox("Email", Email, new { @class = "input-block-level", @type = "email", @placeholder = "Correo Electrónico" }
+                    .AddHtmlAttribute("readonly", "readonly", !IsNew)
+                    .AddHtmlAttribute("required", "required", IsNew)
+                    .AddHtmlAttribute("data-req-message", "Debe ingresar su <strong>Correo Electrónico</strong>.", IsNew)
+                )
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                @Html.Label("Nombre", "Nombre")
+                @Html.TextBox("Nombre", Nombre, new { @class = "input-block-level", placeholder = "Nombre", @required = true, @data_req_message = "Debe ingresar su <strong>Nombre</strong>." })
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                @Html.Label("APaterno", "Apellido Paterno")
+                @Html.TextBox("APaterno", APaterno, new { @class = "input-block-level", placeholder = "Apellido Paterno", @required = true, @data_req_message = "Debe ingresar su <strong>Apellido Paterno</strong>." })
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                @Html.Label("AMaterno", "Apellido Materno")
+                @Html.TextBox("AMaterno", AMaterno, new { @class = "input-block-level", placeholder = "Apellido Materno", @required = true, @data_req_message = "Debe ingresar su <strong>Apellido Materno</strong>." })
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <hr />
+        <a href="javascript:void(0);" class="btn btn-warning pull-left" data-dismiss="modal">
+            <i class="icon-remove mr8"></i>Cancelar
+        </a>
+        <a id="btnGuardar" href="javascript:void(0);" class="btn btn-success pull-right">
+            <i class="icon-save mr8"></i>Guardar
+        </a>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        var Modal_ = $("#@Id");
+        var Body_ = $(Modal_).find(".modal-body");
+        var Id = $(Modal_).find("#Id");
+        var Email = $(Modal_).find("#Email");
+        var Nombre = $(Modal_).find("#Nombre");
+        var APaterno = $(Modal_).find("#APaterno");
+        var AMaterno = $(Modal_).find("#AMaterno");
+
+        var Estado = $(Modal_).find("#Estado");
+        var btnGuardar = $(Modal_).find("#btnGuardar");
+
+        $(Estado).bootstrapToggle({
+            on: "<i class='icon-ok mr8'></i>Activo",
+            off: "<i class='icon-remove mr8'></i>Inactivo",
+            onstyle: "success",
+            offstyle: "danger",
+            width: "100px"
+        });
+
+        $(btnGuardar).click(function () {
+            var ValidForm = App.ValidateForm(Body_);
+
+            if (ValidForm) {
+                App.AjaxCall({
+                    Url: '@Url.Action("Form")',
+                    Metodo: "POST",
+                    ConvertirParametros: true,
+                    ParametrosAjax: {
+                        Id: $(Id).val(),
+                        Email: $(Email).val(),
+                        Nombre: $(Nombre).val(),
+                        APaterno: $(APaterno).val(),
+                        AMaterno: $(AMaterno).val(),
+                        Activo: $(Estado).prop("checked")
+                    },
+                    Callback: function (Resultado) {
+                        if (Resultado && !Resultado.Error && Resultado.Message) {
+                            $(modal).on("hidden", function () {
+                                $("#btnQuery").click();
+                            });
+
+                            $(modal).modal("hide");
+                            App.ShowMessage(Resultado.Message, MessageType.Success);
+                        }
+                        if (Resultado && Resultado.Error && Resultado.Message) App.ShowMessage(Resultado.Message, MessageType.Error);
+                    }
+                });
+            }
+        });
+    });
+</script>

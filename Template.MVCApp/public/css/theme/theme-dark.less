@@ -1,0 +1,269 @@
+﻿/*#region Paleta de Aplicación. */
+@white: #fff;
+@black: #000;
+@primary: #34495E;
+@secondary: #1ABC9C;
+@menutext: #A3D5F7;
+@menuactive: #FDCD38;
+/*#endregion */
+
+/*#region Fondo.*/
+.bg {
+	//background: linear-gradient(lighten(@primary, 5%), lighten(@primary, 15%)), url("../../img/loginbg.jpg");
+}
+/*#endregion*/
+
+/*#region Logo & User Picture.*/
+img.logo {
+	max-width: 140px;
+}
+/*#endregion*/
+
+/*#region Botones. */
+.btn.disabled {
+	color: @white !important;
+}
+
+/*#region btn-primary */
+.btn-primary {
+	background-color: @primary;
+	color: @white;
+}
+
+	.btn-group.open .btn-primary.dropdown-toggle,
+	.btn-primary:hover,
+	.btn-primary:focus {
+		background-color: darken(@primary, 10%);
+	}
+
+	.btn-primary.btn-outline {
+		border: 1px solid @primary;
+		background-color: @white;
+		color: @primary;
+		font-weight: bold;
+	}
+
+		.btn-group.open .btn-primary.btn-outline.dropdown-toggle,
+		.btn-primary.btn-outline:hover,
+		.btn-primary.btn-outline:focus {
+			background-color: @primary !important;
+			color: @white !important;
+		}
+/*#endregion */
+
+/*#region btn-secondary */
+.btn-secondary {
+	background-color: @secondary;
+	color: @white;
+}
+
+	.btn-group.open .btn-secondary.dropdown-toggle,
+	.btn-secondary:hover,
+	.btn-secondary:focus {
+		background-color: darken(@secondary, 10%);
+		color: @white;
+	}
+
+	.btn-secondary.btn-outline {
+		border: 1px solid @secondary;
+		background-color: @white;
+		color: @secondary;
+		font-weight: bold;
+	}
+
+		.btn-group.open .btn-secondary.btn-outline.dropdown-toggle,
+		.btn-secondary.btn-outline:hover,
+		.btn-secondary.btn-outline:focus {
+			background-color: @secondary !important;
+			color: @white !important;
+		}
+/*#endregion */
+/*#endregion */
+
+/*#region Paneles. */
+/*#region panel-primary. */
+.panel-primary {
+	border: 1px solid @primary;
+}
+
+	.panel-primary .panel-heading {
+		color: @white;
+		background-color: @primary;
+		border-color: @primary;
+	}
+/*#endregion */
+
+/*#region panel-secondary. */
+.panel-secondary {
+	border: 1px solid @secondary;
+}
+
+	.panel-secondary .panel-heading {
+		color: @white;
+		background-color: @secondary;
+		border-color: @secondary;
+	}
+/*#endregion */
+/*#endregion */
+
+/*#region Menú */
+a#pin {
+	background-color: @primary;
+}
+
+div#menu {
+	background-color: @primary;
+	border-right: 1px solid @primary;
+}
+
+	div#menu ul > li {
+		border-left: 4px solid @primary;
+	}
+
+#barra .dropdown-menu > li > a:hover,
+#barra .dropdown-menu > li > a:focus,
+#barra .dropdown-menu > li > a:hover .text-danger,
+#barra .dropdown-menu > li > a:focus .text-danger,
+#barra .dropdown-submenu:hover > a,
+#barra .dropdown-submenu:focus > a {
+	background-color: @secondary !important;
+	color: @white !important;
+}
+
+div#menu ul > li.active {
+	background-color: fade(@black, 25%);
+	border-color: @menuactive;
+}
+/*#endregion */
+
+/*#region Loader & Modal. */
+div#loader,
+#dialog-box-mask {
+	background-color: @primary !important;
+}
+
+.modal-backdrop {
+	background-color: @black;
+}
+/*#endregion */
+
+/*#region Helpers. */
+.text-primary {
+	color: @primary;
+}
+/*#endregion */
+
+/*#region BootGrid. */
+.bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover, 
+.bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover, 
+.bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus, 
+.bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus {
+	background-color: @secondary !important;
+	color: @white !important;
+}
+
+.bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu li.active > .dropdown-item,
+.bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu li.active > .dropdown-item,
+.bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu li.active > .dropdown-item,
+.bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu li.active > .dropdown-item {
+	background-color: @primary !important;
+	color: @white !important;
+}
+/*#endregion */
+
+/*#region AutoComplete. */
+.autocomplete-suggestion strong {
+	color: @primary;
+}
+
+.autocomplete-suggestion:hover {
+	background-color: @primary;
+	color: @white;
+}
+
+.autocomplete-selected {
+	background-color: @primary;
+	color: @white;
+}
+/*#endregion */
+
+/*#region JSON Formatter. */
+.json-value {
+	color: darken(@primary, 10%);
+}
+/*#endregion */
+
+/*#region Bootstrap Select. */
+.bootstrap-select > .dropdown-menu.open > .dropdown-menu.inner > li > a:hover {
+	background-color: @secondary;
+	color: @white;
+}
+/*#endregion */
+
+/*#region Selección. */
+::selection {
+  background-color: @secondary;
+  color: @white;
+}
+
+::-moz-selection {
+  background-color: @secondary;
+  color: @white;
+}
+/*#endregion */
+
+/*#region DateRangePicker. */
+.daterangepicker .ranges li.active {
+	background-color: @primary !important;
+	border-color: darken(@primary, 4%) !important;
+	color: @white !important;
+}
+
+.daterangepicker .ranges li:hover {
+	background-color: @primary !important;
+	border-color: darken(@primary, 4%) !important;
+	color: @white !important;
+}
+
+.daterangepicker .ranges li {
+	color: @primary !important;
+}
+
+.datepicker table tr td.active, 
+.datepicker table tr td.active.disabled, 
+.datepicker table tr td.active.disabled:hover, 
+.datepicker table tr td.active:hover, 
+.daterangepicker td.active, 
+.daterangepicker td.active:hover {
+	background-color: @primary !important;
+	color: @white !important;
+}
+/*#endregion */
+
+/*#region ScrollBars. */
+*::-webkit-scrollbar-track {
+  background-color: lighten(@black, 70%) !important;
+}
+
+*::-webkit-scrollbar {
+  //width: 8px;
+  //height: 12px;
+  //background-color: lighten(@primary, 10%) !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: @primary !important;
+}
+/*#endregion */
+
+/*#region SelectPicker. */
+.bootstrap-select li.selected,
+.bootstrap-select li.active > a {
+	background-color: @primary;
+	color: @white;
+}
+
+.bootstrap-select li.selected > a {
+	color: @white;
+}
+/*#endregion */

@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.titulo = "Acceso";
+    string ReturnUrl = ViewBag.ReturnUrl ?? "";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+<br>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="panels">
+                <div class="span12">
+                    <div class="panel animated flipInY">
+                        <div class="panel-heading text-center text-bold">Bienvenido</div>
+                        <div class="panel-body">
+                            <form novalidate action="@Url.Action("Login", "Access")" method="post">
+                                @Html.Hidden("ReturnUrl", @ReturnUrl)
+                                <div class="container-fluid no-padding">
+                                    <div class="row-fluid">
+                                        <div class="text-center">
+                                            <img class="logo" alt="" src="@Url.Content("~/Public/img/logo-educacion-sin-transp.png")" />
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span12">
+                                            @Html.Label("CorreoElectronico", "Correo Electrónico")
+                                            @Html.TextBox("CorreoElectronico", null, new { @class = "input-block-level", @type = "email", @placeholder = "Escriba su dirección de correo electrónico", @data_message = "Debe ingresar su nombre de usuario", @data_selectonfocus = true, @required = true })
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span12">
+                                            @Html.Label("Password", "Contraseña")
+                                            @Html.Password("Password", null, new { @class = "input-block-level", @placeholder = "Escriba su contraseña", @data_message = "Debe ingresar su contraseña", @data_selectonfocus = true, @required = true })
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span12">
+                                            <a href="@Url.Action("RecoverPassword")" class="btn btn-vinculo btn-block load" data-placement="top" title="Recuperar contraseña">
+                                                <i class="icon-unlock"></i>
+                                                &nbsp;
+                                                Olvidé mi contraseña
+                                            </a>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="container-fluid no-padding">
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        <a id="BtnClear" href="javascript:void(0);" class="btn btn-warning pull-left" data-placement="top" title="Limpiar formulario">
+                                            <i class="icon-eraser"></i>
+                                            &nbsp;
+                                            Limpiar
+                                        </a>
+                                        <a id="BtnAccess" href="javascript:void(0);" class="btn btn-success pull-right" data-placement="top" title="Iniciar Sesión en el Sistema">
+                                            <i class="icon-signin"></i>
+                                            &nbsp;
+                                            Acceder
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .logo {
+        margin-bottom: 72px !important;
+        max-width: 280px !important;
+    }
+
+    .panels {
+        margin: 0 auto;
+        max-width: 640px;
+    }
+
+        .panels .panel {
+            max-width: 320px;
+            margin: 0 auto;
+        }
+</style>
+
+<script>
+    $(function () {
+        var BtnClear = $("#BtnClear");
+        var BtnAccess = $("#BtnAccess");
+        var Email = $("#Email");
+
+        $(Email).focus();
+
+        $(BtnClear).click(function (e) {
+            e.preventDefault();
+
+            var Form = $("form:first");
+
+            App.ClearForm(Form);
+        });
+
+        $(BtnAccess).click(function (e) {
+            e.preventDefault();
+            $(Loader).show();
+
+            var Form = $("form:first");
+
+            var isValidForm = App.ValidateForm(Form);
+
+            if (isValidForm) {
+                $(Form).submit();
+            }
+        });
+    });
+</script>

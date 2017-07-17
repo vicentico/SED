@@ -1,0 +1,51 @@
+﻿@helper FlashMessage(TempDataDictionary TempData_)
+{
+    if (TempData_ == null) { return; }
+
+    var FlashData = (FlashData) TempData_["Flash"];
+
+    if (FlashData == null) { return; }
+
+    var TipoFlash = FlashData.MessageType;
+    var Mensaje = FlashData.Message;
+
+    switch (TipoFlash)
+    {
+        case MessageType.Primary:
+
+            <script>App.ShowMessage("@Html.Raw(Mensaje)", MessageType.Primary);</script>
+					
+            break;
+        case MessageType.Secondary:
+
+            <script>App.ShowMessage("@Html.Raw(Mensaje)", MessageType.Secondary);</script>
+					
+            break;
+        case MessageType.Success:
+
+            <script>App.ShowMessage("@Html.Raw(Mensaje)", MessageType.Success);</script>
+					
+            break;
+        case MessageType.Information:
+
+            <script>App.ShowMessage("@Html.Raw(Mensaje)", MessageType.Information);</script>
+					
+            break;
+        case MessageType.Warning:
+
+            <script>App.ShowMessage("@Html.Raw(Mensaje)", MessageType.Warning);</script>
+					
+            break;
+        case MessageType.Error:
+
+            <script>App.ShowMessage("@Html.Raw(Mensaje)", MessageType.Error);</script>
+					
+            break;
+        default:
+
+            <script>App.ShowMessage("@Html.Raw(Mensaje)", MessageType.Information);</script>
+					
+            break;
+        }
+    }
+@FlashMessage(TempData)

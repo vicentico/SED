@@ -1,0 +1,98 @@
+﻿@model Usuario
+@{
+    if (Model == null)
+    {
+        <script>
+            $(modal).modal("hide");
+        </script>
+        
+        return;
+    }
+    
+    var Id = Utility.GetRandomId();
+
+    var UserId = Model.Id;
+    var Email = Model.Email;
+    var Nombre = Model.Nombre;
+    var APaterno = Model.Apellido_Paterno;
+    var AMaterno = Model.Apellido_Materno;
+}
+
+<div id="@Id">
+    <div class="modal-header">
+        <h4><i class="icon-user mr8 text-danger"></i>Mi Perfil</h4>
+        <hr />
+    </div>
+	<div class="modal-body">
+		<form action="@Url.Action("MyProfile")" method="POST" enctype="multipart/form-data">
+			@Html.Hidden("Id", UserId)
+			<div class="row-fluid">
+				<div class="span12">
+					@Html.Label("Email", "Correo Electrónico")
+					@Html.TextBox("Email", Email, new { @class = "input-block-level", @readonly = true })
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					@Html.Label("Nombre", "Nombre")
+					@Html.TextBox("Nombre", Nombre, new { @class = "input-block-level", placeholder = "Nombre", @required = true, @data_req_message = "Debe ingresar su <strong>Nombre</strong>." })
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					@Html.Label("APaterno", "Apellido Paterno")
+					@Html.TextBox("APaterno", APaterno, new { @class = "input-block-level", placeholder = "Apellido Paterno", @required = true, @data_req_message = "Debe ingresar su <strong>Apellido Paterno</strong>." })
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					@Html.Label("AMaterno", "Apellido Materno")
+					@Html.TextBox("AMaterno", AMaterno, new { @class = "input-block-level", placeholder = "Apellido Materno", @required = true, @data_req_message = "Debe ingresar su <strong>Apellido Materno</strong>." })
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					@Html.Label("Foto", "Foto")
+					@Html.TextBox("Foto", null, new { @type = "file", @accept = "image/gif, image/jpeg, image/png" })
+				</div>
+			</div>
+		</form>
+	</div>
+    <div class="modal-footer">
+        <hr />
+        <a href="javascript:void(0);" class="btn btn-warning pull-left" data-dismiss="modal">
+            <i class="icon-remove mr8"></i>Cancelar
+        </a>
+        <a id="btnGuardar" href="javascript:void(0);" class="btn btn-success pull-right">
+            <i class="icon-save mr8"></i>Guardar
+        </a>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        var Modal_ = $("#@Id");
+        var Form_ = $(Modal_).find("form:first");
+		var Foto = $(Modal_).find("#Foto");
+		var BtnGuardar = $(Modal_).find("#btnGuardar");
+
+        $(Foto).filestyle({
+            classButton: "btn btn-primary",
+            buttonText: "Seleccionar",
+            classIcon: "icon-camera"
+        });
+
+        $(BtnGuardar).click(function () {
+            var ValidForm = App.ValidateForm(Form_);
+
+            if (ValidForm) {
+                App.ShowConfirm({
+                    Content: "¿Está seguro(a) que desea <strong>Actualizar</strong> su <strong>Perfil</strong>?",
+                    Callback: function () {
+                        $(Form_).submit();
+                    }
+                });
+            }
+        });
+    });
+</script>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="TemplateEntities-Web.config Connection String" description="TemplateEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/TemplateModel.csdl|res://*/TemplateModel.ssdl|res://*/TemplateModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=CPOBLETE-NOT\DELOREAN;initial catalog=Template;User id=iconstruye;Password=Cuenta123!;integrated security=False;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\GGaldamesD\\Template\\Template\.MVCApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TemplateEntities']/@connectionString" />
+  </parameter>
+</parameters>

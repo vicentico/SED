@@ -1,0 +1,138 @@
+﻿@{
+    var Id = Utility.GetRandomId();
+    var RolesUnAssigned = ViewBag.RolesUnAssigned;
+    var RolesAssigned = ViewBag.RolesAssigned;
+}
+
+<div id="@Id">
+    <div class="modal-header">
+        <h4><i class="icon-tasks mr8 text-danger"></i>Asignar Roles</h4>
+        <hr/>
+    </div>
+    <div class="modal-body">
+        <form action="@Url.Action("AssignRole")" method="POST">
+            @Html.Hidden("Id")
+
+            <div class="row-fluid">
+                <div class="span5">
+                    @Html.Label("RolesUnAssigned", "Roles No Asignados")
+                    @Html.DropDownList("RolesUnAssigned", new SelectList(RolesUnAssigned, "Id", "Nombre"), new {@class = "input-block-level", @multiple = "", @required = ""})
+                </div>
+                <div class="span2">
+                    <ul class="unstyled">
+                        <li class="text-center">
+                            <a id="BtnAdd" href="javascript:void(0);" class="btn btn-primary mb8 w32x" title="Agregar" data-placement="right">
+                                <i class="icon-angle-right fs24"></i>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a id="BtnAll" href="javascript:void(0);" class="btn btn-primary mb8 w32x" title="Todos" data-placement="right">
+                                <i class="icon-double-angle-right fs24"></i>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a id="BtnRemove" href="javascript:void(0);" class="btn btn-primary mb8 w32x" title="Quitar" data-placement="left">
+                                <i class="icon-angle-left fs24"></i>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a id="BtnNone" href="javascript:void(0);" class="btn btn-primary mb8 w32x" title="Ninguno" data-placement="left">
+                                <i class="icon-double-angle-left fs24"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="span5">
+                    @Html.Label("RolesAssigned", "Roles Asignados")
+                    @Html.DropDownList("RolesAssigned", new SelectList(RolesAssigned, "Id", "Nombre"), new {@class = "input-block-level", @multiple = "", @required = ""})
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <hr/>
+        <a href="javascript:void(0);" class="btn btn-warning pull-left" data-dismiss="modal">
+            <i class="icon-remove mr8"></i>Cancelar
+        </a>
+        <a id="BtnAssign" href="javascript:void(0);" class="btn btn-success pull-right">
+            <i class="icon-save mr8"></i>Asignar
+        </a>
+    </div>
+</div>
+
+<style>
+    select[multiple] {
+        min-height: 134px !important;
+    }
+</style>
+
+<script>
+    $(function () {
+        var Roles_ = [];
+        var Modal_ = $("#@Id");
+        var Id = $(Modal_).find("#Id");
+        var RolesUnAssigned = $(Modal_).find("#RolesUnAssigned");
+        var RolesAssigned = $(Modal_).find("#RolesAssigned");
+        var BtnAssign = $(Modal_).find("#BtnAssign");
+        var BtnAdd = $(Modal_).find("#BtnAdd");
+        var BtnAll = $(Modal_).find("#BtnAll");
+        var BtnRemove = $(Modal_).find("#BtnRemove");
+        var BtnNone = $(Modal_).find("#BtnNone");
+
+        $(BtnAdd).click(function(e) {
+            e.preventDefault();
+
+            return !$(RolesUnAssigned).find("option:selected").remove().appendTo(RolesAssigned);
+        });
+
+        $(BtnAll).click(function (e) {
+            e.preventDefault();
+
+            return !$(RolesUnAssigned).find("option").remove().appendTo(RolesAssigned);
+        });
+
+        $(BtnRemove).click(function (e) {
+            e.preventDefault();
+
+            return !$(RolesAssigned).find("option:selected").remove().appendTo(RolesUnAssigned);
+        });
+
+        $(BtnNone).click(function (e) {
+            e.preventDefault();
+
+            return !$(RolesAssigned).find("option").remove().appendTo(RolesUnAssigned);
+        });
+
+        $(BtnAssign).click(function () {
+            Roles_ = [];
+
+            $(RolesAssigned).find("option").each(function (index, item) {
+                Roles_[index] = $(item).val();
+            });
+
+            console.log(Roles_.join(","));
+
+            App.ShowConfirm({
+                Content: "¿Está seguro(a) que desea <strong>Guardar</strong> los <strong>Cambios</strong>?",
+                Callback: function () {
+                    App.AjaxCall({
+                        Url: '@Url.Action("AssignRole")',
+                        Metodo: "POST",
+                        ConvertirParametros: true,
+                        ParametrosAjax: {
+                            Roles: Roles_.join(","),
+                            UserId: $(Id).val()
+                        },
+                        Callback: function (Resultado) {
+                            if (Resultado && !Resultado.Error && Resultado.Message) {
+                                $(modal).modal("hide");
+                                App.ShowMessage(Resultado.Message, MessageType.Success);
+                            }
+                            if (Resultado && Resultado.Error && Resultado.Message) App.ShowMessage(Resultado.Message, MessageType.Error);
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>

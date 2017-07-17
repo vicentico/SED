@@ -1,0 +1,6 @@
+D:\GGaldamesD\IConstruye\Proyectos\Carterizacion\IConstruye.Carterizacion\bin\IConstruye.Carterizacion.dll.config
+D:\GGaldamesD\IConstruye\Proyectos\Carterizacion\IConstruye.Carterizacion\bin\IConstruye.Carterizacion.dll
+D:\GGaldamesD\IConstruye\Proyectos\Carterizacion\IConstruye.Carterizacion\bin\IConstruye.Carterizacion.pdb
+D:\GGaldamesD\IConstruye\Proyectos\Carterizacion\IConstruye.Carterizacion\obj\Debug\IConstruye.Carterizacion.csprojResolveAssemblyReference.cache
+D:\GGaldamesD\IConstruye\Proyectos\Carterizacion\IConstruye.Carterizacion\obj\Debug\IConstruye.Carterizacion.dll
+D:\GGaldamesD\IConstruye\Proyectos\Carterizacion\IConstruye.Carterizacion\obj\Debug\IConstruye.Carterizacion.pdb

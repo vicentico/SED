@@ -1,0 +1,140 @@
+﻿@using Template.Engine.Helper
+@{
+    var Id = Utility.GetRandomId();
+    var personasUnAssigned = ViewBag.EmpleadosUnAssigned;
+    var personasAssigned = ViewBag.EmpleadosAssigned;
+}
+
+<div id="@Id">
+    <div class="modal-header">
+        <h4><i class="icon-tasks mr8 text-danger"></i>Asignar Empleados</h4>
+        <hr />
+    </div>
+    <div class="modal-body">
+        <form action="@Url.Action("AssignPersona")" method="POST">
+            @Html.Hidden("Id")
+
+            <div class="row-fluid">
+                <div class="span5">
+                    @Html.Label("PersonasUnAssigned", "Personas No Asignadas")
+                    @Html.DropDownList("PersonasUnAssigned", new SelectList(personasUnAssigned, "id", "nombre"), new { @class = "input-block-level", @multiple = "", @required = "" })
+                </div>
+                <div class="span2">
+                    <ul class="unstyled">
+                        <li class="text-center">
+                            <a id="BtnAdd" href="javascript:void(0);" class="btn btn-primary mb8 w32x" title="Agregar" data-placement="right">
+                                <i class="icon-angle-right fs24"></i>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a id="BtnAll" href="javascript:void(0);" class="btn btn-primary mb8 w32x" title="Todos" data-placement="right">
+                                <i class="icon-double-angle-right fs24"></i>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a id="BtnRemove" href="javascript:void(0);" class="btn btn-primary mb8 w32x" title="Quitar" data-placement="left">
+                                <i class="icon-angle-left fs24"></i>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a id="BtnNone" href="javascript:void(0);" class="btn btn-primary mb8 w32x" title="Ninguno" data-placement="left">
+                                <i class="icon-double-angle-left fs24"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="span5">
+                    @Html.Label("PersonasAssigned", "Personas Asignadas")
+                    @Html.DropDownList("PersonasAssigned", new SelectList(personasAssigned, "id", "nombre"), new { @class = "input-block-level", @multiple = "", @required = "" })
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <hr />
+        <a href="javascript:void(0);" class="btn btn-warning pull-left" data-dismiss="modal">
+            <i class="icon-remove mr8"></i>Cancelar
+        </a>
+        <a id="BtnAssign" href="javascript:void(0);" class="btn btn-success pull-right">
+            <i class="icon-save mr8"></i>Asignar
+        </a>
+    </div>
+</div>
+
+<style>
+    select[multiple] {
+        min-height: 134px !important;
+    }
+</style>
+
+<script>
+    $(function () {
+        var Personas_ = [];
+        var Modal_ = $("#@Id");
+        var id = $(Modal_).find("#Id");
+        var PersonasUnAssigned = $(Modal_).find("#PersonasUnAssigned");
+        var PersonasAssigned = $(Modal_).find("#PersonasAssigned");
+        var BtnAssign = $(Modal_).find("#BtnAssign");
+        var BtnAdd = $(Modal_).find("#BtnAdd");
+        var BtnAll = $(Modal_).find("#BtnAll");
+        var BtnRemove = $(Modal_).find("#BtnRemove");
+        var BtnNone = $(Modal_).find("#BtnNone");
+
+        $(BtnAdd).click(function(e) {
+            e.preventDefault();
+
+            return !$(PersonasUnAssigned).find("option:selected").remove().appendTo(PersonasAssigned);
+        });
+
+        $(BtnAll).click(function (e) {
+            e.preventDefault();
+
+            return !$(PersonasUnAssigned).find("option").remove().appendTo(PersonasAssigned);
+        });
+
+        $(BtnRemove).click(function (e) {
+            e.preventDefault();
+
+            return !$(PersonasAssigned).find("option:selected").remove().appendTo(PersonasUnAssigned);
+        });
+
+        $(BtnNone).click(function (e) {
+            e.preventDefault();
+
+            return !$(PersonasAssigned).find("option").remove().appendTo(PersonasUnAssigned);
+        });
+
+        $(BtnAssign).click(function () {
+            Personas_ = [];
+
+            $(PersonasAssigned).find("option").each(function (index, item) {
+                Personas_[index] = $(item).val();
+            });
+
+            console.log(Personas_.join(","));
+
+            App.ShowConfirm({
+                Content: "¿Está seguro(a) que desea <strong>Guardar</strong> los <strong>Cambios</strong>?",
+                Callback: function () {
+                    App.AjaxCall({
+                        Url: '@Url.Action("AssignPersona")',
+                        Metodo: "POST",
+                        ConvertirParametros: true,
+                        ParametrosAjax: {
+                            Personas: Personas_.join(","),
+                            idEvaluacion: $(id).val()
+                        },
+                        Callback: function (Resultado) {
+                            if (Resultado && !Resultado.Error && Resultado.Message) {
+                                $(modal).modal("hide");
+                                App.ShowMessage(Resultado.Message, MessageType.Success);
+                            }
+                            if (Resultado && Resultado.Error && Resultado.Message) App.ShowMessage(Resultado.Message, MessageType.Error);
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
+

@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F21E87EB-E16C-4650-AAB9-E1007DADA4E1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Template.MVCApp</RootNamespace>
+    <AssemblyName>Template.MVCApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="public\css\animate\animate.css" />
+    <Content Include="public\css\animate\waves.css" />
+    <Content Include="public\css\application\application.css">
+      <DependentUpon>application.less</DependentUpon>
+    </Content>
+    <Content Include="public\css\bootgrid\jquery.bootgrid.css" />
+    <Content Include="public\css\bootplus\bootplus.css" />
+    <Content Include="public\css\bootstraptoggle\bootstraptoggle.css" />
+    <Content Include="public\css\datepicker\datepicker.css" />
+    <Content Include="public\css\datepicker\daterange.css" />
+    <Content Include="public\css\prettify\prettify.css" />
+    <Content Include="public\css\selectpicker\selectpicker.css" />
+    <Content Include="public\css\themify\themify-icons.css" />
+    <Content Include="public\css\themify\themify.svg" />
+    <Content Include="public\css\toastr\jquery.dialogbox.css" />
+    <Content Include="public\css\toastr\toastr.css" />
+    <Content Include="public\fonts\fontawesome-3.2.1\font-awesome-ie7.css" />
+    <Content Include="public\fonts\fontawesome-3.2.1\font-awesome.css" />
+    <Content Include="public\fonts\fontawesome-3.2.1\fontawesome-webfont.svg" />
+    <Content Include="public\img\default-user.png" />
+    <Content Include="public\img\duck.jpg" />
+    <Content Include="public\img\favicon.png" />
+    <Content Include="public\img\fondo1.jpg" />
+    <Content Include="public\img\iconstruye.png" />
+    <Content Include="public\img\icon\android-icon-144x144.png" />
+    <Content Include="public\img\icon\android-icon-192x192.png" />
+    <Content Include="public\img\icon\android-icon-36x36.png" />
+    <Content Include="public\img\icon\android-icon-48x48.png" />
+    <Content Include="public\img\icon\android-icon-72x72.png" />
+    <Content Include="public\img\icon\android-icon-96x96.png" />
+    <Content Include="public\img\icon\apple-icon-114x114.png" />
+    <Content Include="public\img\icon\apple-icon-120x120.png" />
+    <Content Include="public\img\icon\apple-icon-144x144.png" />
+    <Content Include="public\img\icon\apple-icon-152x152.png" />
+    <Content Include="public\img\icon\apple-icon-180x180.png" />
+    <Content Include="public\img\icon\apple-icon-57x57.png" />
+    <Content Include="public\img\icon\apple-icon-60x60.png" />
+    <Content Include="public\img\icon\apple-icon-72x72.png" />
+    <Content Include="public\img\icon\apple-icon-76x76.png" />
+    <Content Include="public\img\icon\apple-icon-precomposed.png" />
+    <Content Include="public\img\icon\apple-icon.png" />
+    <Content Include="public\img\icon\browserconfig.xml" />
+    <Content Include="public\img\icon\favicon-16x16.png" />
+    <Content Include="public\img\icon\favicon-32x32.png" />
+    <Content Include="public\img\icon\favicon-96x96.png" />
+    <Content Include="public\img\icon\favicon.ico" />
+    <Content Include="public\img\icon\ms-icon-144x144.png" />
+    <Content Include="public\img\icon\ms-icon-150x150.png" />
+    <Content Include="public\img\icon\ms-icon-310x310.png" />
+    <Content Include="public\img\icon\ms-icon-70x70.png" />
+    <Content Include="public\img\jon_snow.jpg" />
+    <Content Include="public\img\loader.gif" />
+    <Content Include="public\img\loader.svg" />
+    <Content Include="public\img\loginbg.jpg" />
+    <Content Include="public\img\logo.png" />
+    <Content Include="public\img\logo-educacion-sin-transp.png" />
+    <Content Include="public\img\menubg.jpg" />
+    <Content Include="public\img\rick_grimes.png" />
+    <Content Include="public\js\application\application.js" />
+    <Content Include="public\js\bootgrid\jquery.bootgrid.icons.js" />
+    <Content Include="public\js\bootgrid\jquery.bootgrid.js" />
+    <Content Include="public\js\bootplus\bootplus.js" />
+    <Content Include="public\js\bootplus\bootstrap-tagsinput.js" />
+    <Content Include="public\js\bootstraptoggle\bootstraptoggle.js" />
+    <Content Include="public\js\conf\conf.js" />
+    <Content Include="public\js\datepicker\datepicker.js" />
+    <Content Include="public\js\datepicker\daterange.js" />
+    <Content Include="public\js\datepicker\moment.js" />
+    <Content Include="public\js\filestyle\bootstrap-filestyle.js" />
+    <Content Include="public\js\jquery\Chart.js" />
+    <Content Include="public\js\jquery\jquery-1.10.2.js" />
+    <Content Include="public\js\jquery\jquery.autocomplete.js" />
+    <Content Include="public\js\jquery\jquery.base64.js" />
+    <Content Include="public\js\jquery\jquery.cookie.js" />
+    <Content Include="public\js\jquery\jquery.panelToggle.js" />
+    <Content Include="public\js\jquery\jquery.pwstrength.js" />
+    <Content Include="public\js\jquery\modernizr.js" />
+    <Content Include="public\js\jquery\waves.js" />
+    <Content Include="public\js\jquery\xml2json.js" />
+    <Content Include="public\js\libraries\promise.js" />
+    <Content Include="public\js\libraries\underscore.js" />
+    <Content Include="public\js\prettify\prettify.js" />
+    <Content Include="public\js\selectpicker\selectpicker.js" />
+    <Content Include="public\js\toastr\jquery.dialogbox.js" />
+    <Content Include="public\js\toastr\toastr.js" />
+    <Content Include="Areas\Administration\Views\Menu\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Menu\Form.cshtml" />
+    <Content Include="Areas\Administration\Views\Menu\AssignRole.cshtml" />
+    <None Include="Areas\Administration\Views\Role\Index.cshtml" />
+    <Content Include="public\video\fondo.mp4" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Access\Denied.cshtml" />
+    <Content Include="Views\Shared\_Error.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Role\Form.cshtml" />
+    <Content Include="Areas\Administration\Views\User\MyProfile.cshtml" />
+    <Content Include="Areas\Administration\Views\User\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\User\ChangePassword.cshtml" />
+    <Content Include="Views\Access\ChangePassword.cshtml" />
+    <Content Include="Areas\Administration\Views\User\Form.cshtml" />
+    <Content Include="Areas\Administration\Views\User\RequestPassword.cshtml" />
+    <Content Include="Areas\Administration\Views\User\AssignRole.cshtml" />
+    <Content Include="Views\Home\Error404.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Areas\Evaluaciones\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluacion\index.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Tipo\Index.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Tipo\Form.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Empleado\Index.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluacion\AssignPersona.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluacion\Form.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Empleado\Form.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Area\Index.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Area\Form.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Pregunta\Index.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Pregunta\Form.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Pregunta\AssignEvaluacion.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluaciones_Empleado\Create.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluaciones_Empleado\Delete.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluaciones_Empleado\Details.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluaciones_Empleado\Edit.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluaciones_Empleado\Index.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluacion\ResponderEvaluacion.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluacion\EnviarRespuestas.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluacion\RegistrarEvaluacion.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluacion\EnviarEvaluacion.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluacion\ConsultarRegistroEvaluacion.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluacion\VerPreguntasEvaluacion.cshtml" />
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="ClassDiagram2.cd" />
+    <None Include="Properties\PublishProfiles\memnershiprh - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\memnershiprh - Web Deploy.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administration\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Administration\Controllers\RoleController.cs" />
+    <Compile Include="Areas\Administration\Controllers\UserController.cs" />
+    <Compile Include="Areas\Evaluaciones\Controllers\AreaController.cs" />
+    <Compile Include="Areas\Evaluaciones\Controllers\EmpleadoController.cs" />
+    <Compile Include="Areas\Evaluaciones\Controllers\EvaluacionController.cs" />
+    <Compile Include="Areas\Evaluaciones\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Evaluaciones\Controllers\PreguntaController.cs" />
+    <Compile Include="Areas\Evaluaciones\Controllers\RespuestaController.cs" />
+    <Compile Include="Areas\Evaluaciones\Controllers\TipoController.cs" />
+    <Compile Include="Areas\Evaluaciones\EvaluacionesAreaRegistration.cs" />
+    <Compile Include="Controllers\AccessController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Engine\FilterConfig.cs" />
+    <Compile Include="Engine\RouteConfig.cs" />
+    <Compile Include="Engine\WebHelper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MenuVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="public\css\application\application.less" />
+    <Content Include="public\css\themify\themify.eot" />
+    <Content Include="public\css\themify\themify.ttf" />
+    <Content Include="public\css\themify\themify.woff" />
+    <Content Include="public\fonts\fontawesome-3.2.1\fontawesome-webfont.eot" />
+    <Content Include="public\fonts\fontawesome-3.2.1\fontawesome-webfont.ttf" />
+    <Content Include="public\fonts\fontawesome-3.2.1\fontawesome-webfont.woff" />
+    <Content Include="public\fonts\fontawesome-3.2.1\fontawesome.otf" />
+    <Content Include="public\fonts\OpenSans\OpenSans-Bold.ttf" />
+    <Content Include="public\fonts\OpenSans\OpenSans-BoldItalic.ttf" />
+    <Content Include="public\fonts\OpenSans\OpenSans-ExtraBold.ttf" />
+    <Content Include="public\fonts\OpenSans\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="public\fonts\OpenSans\OpenSans-Italic.ttf" />
+    <Content Include="public\fonts\OpenSans\OpenSans-Light.ttf" />
+    <Content Include="public\fonts\OpenSans\OpenSans-LightItalic.ttf" />
+    <Content Include="public\fonts\OpenSans\OpenSans-Regular.ttf" />
+    <Content Include="public\fonts\OpenSans\OpenSans-Semibold.ttf" />
+    <Content Include="public\fonts\OpenSans\OpenSans-SemiboldItalic.ttf" />
+    <Content Include="public\img\icon\manifest.json" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Flash.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Access\Index.cshtml" />
+    <Content Include="Views\Access\RecoverPassword.cshtml" />
+    <Content Include="Areas\Administration\Views\web.config" />
+    <Content Include="Areas\Administration\Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Opciones.cshtml" />
+    <Content Include="Views\Shared\_Main.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Administration\Views\User\Shared\" />
+    <Folder Include="Areas\Evaluaciones\Models\" />
+    <Folder Include="Areas\Evaluaciones\Views\Respuesta\" />
+    <Folder Include="Areas\Evaluaciones\Views\Shared\" />
+    <Folder Include="Temp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Referencias\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Referencias\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Referencias\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Template.Domain\Template.Domain.csproj">
+      <Project>{172C7695-C7E5-4443-BE22-6AE955AAA586}</Project>
+      <Name>Template.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Template.Engine\Template.Engine.csproj">
+      <Project>{ec841d51-6962-499c-9465-a5602c607fd3}</Project>
+      <Name>Template.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Template.Service\Template.Service.csproj">
+      <Project>{8FE82172-13E1-4E07-BA27-EC82E35B66FF}</Project>
+      <Name>Template.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65351</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:65352/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://mvcapp</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

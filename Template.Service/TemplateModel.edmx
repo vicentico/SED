@@ -1,0 +1,1166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Email">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreRemitente" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DireccionRemitente" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DireccionesCC" Type="varchar" MaxLength="100" />
+          <Property Name="DireccionesCCO" Type="varchar" MaxLength="100" />
+          <Property Name="Asunto" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Cuerpo" Type="varchar(max)" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Emp_Eval">
+          <Key>
+            <PropertyRef Name="idEmpleadoEvaluado" />
+            <PropertyRef Name="idEmpleadoEvaluador" />
+            <PropertyRef Name="idEvaluacion" />
+          </Key>
+          <Property Name="idEmpleadoEvaluado" Type="int" Nullable="false" />
+          <Property Name="idEmpleadoEvaluador" Type="int" Nullable="false" />
+          <Property Name="idEvaluacion" Type="int" Nullable="false" />
+          <Property Name="comentario" Type="varchar" MaxLength="100" />
+          <Property Name="fechaCreacion" Type="datetime" />
+          <Property Name="fechaModificacion" Type="datetime" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="150" />
+          <Property Name="cargo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="id_Usuario" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+          <Property Name="id_Aera" Type="int" Nullable="false" />
+          <Property Name="id_Empleado_Jefe" Type="int" />
+        </EntityType>
+        <EntityType Name="Eval_Pregunta">
+          <Key>
+            <PropertyRef Name="idEvaluacion" />
+            <PropertyRef Name="idPregunta" />
+          </Key>
+          <Property Name="idEvaluacion" Type="int" Nullable="false" />
+          <Property Name="idPregunta" Type="int" Nullable="false" />
+          <Property Name="comentario" Type="varchar" MaxLength="100" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Evaluacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="150" />
+          <Property Name="tipoEval" Type="int" Nullable="false" />
+          <Property Name="fechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="fechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Icono">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Menu_Id" Type="int" />
+          <Property Name="Url" Type="varchar" MaxLength="50" />
+          <Property Name="Icono" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Texto" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ayuda" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Orden" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pregunta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="tipoPregunta" Type="int" Nullable="false" />
+          <Property Name="fechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="fechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Respuesta">
+          <Key>
+            <PropertyRef Name="idPregunta" />
+            <PropertyRef Name="idEvaluacion" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="valor" Type="int" />
+          <Property Name="idEmpleado" Type="int" Nullable="false" />
+          <Property Name="idPregunta" Type="int" Nullable="false" />
+          <Property Name="idEvaluacion" Type="int" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="RolMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rol_Id" Type="int" Nullable="false" />
+          <Property Name="Menu_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rol_Id" Type="int" Nullable="false" />
+          <Property Name="Usuario_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoria" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Foto" Type="image" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido_Paterno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido_Materno" Type="varchar" MaxLength="50" />
+          <Property Name="Ultimo_Acceso" Type="datetime" />
+          <Property Name="Debe_Cambiar_Password" Type="bit" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_E_tipoEval">
+          <End Role="Tipo" Type="Self.Tipo" Multiplicity="1" />
+          <End Role="Evaluacion" Type="Self.Evaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Evaluacion">
+              <PropertyRef Name="tipoEval" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EE_Evaluacion">
+          <End Role="Evaluacion" Type="Self.Evaluacion" Multiplicity="1" />
+          <End Role="Emp_Eval" Type="Self.Emp_Eval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evaluacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Emp_Eval">
+              <PropertyRef Name="idEvaluacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EE_idEmpleadoEvaluado">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+          <End Role="Emp_Eval" Type="Self.Emp_Eval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Emp_Eval">
+              <PropertyRef Name="idEmpleadoEvaluado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EE_idEmpleadoEvaluador">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+          <End Role="Emp_Eval" Type="Self.Emp_Eval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Emp_Eval">
+              <PropertyRef Name="idEmpleadoEvaluador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empleado_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="id_Aera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empleado_Empleado">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Empleado1" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleado1">
+              <PropertyRef Name="id_Empleado_Jefe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empleado_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EvalPregunta_Evaluacion">
+          <End Role="Evaluacion" Type="Self.Evaluacion" Multiplicity="1" />
+          <End Role="Eval_Pregunta" Type="Self.Eval_Pregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evaluacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Eval_Pregunta">
+              <PropertyRef Name="idEvaluacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EvalPregunta_Pregunta">
+          <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="1" />
+          <End Role="Eval_Pregunta" Type="Self.Eval_Pregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pregunta">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Eval_Pregunta">
+              <PropertyRef Name="idPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menu_Menu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+          <End Role="Menu1" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Menu1">
+              <PropertyRef Name="Menu_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pregunta">
+          <End Role="Tipo" Type="Self.Tipo" Multiplicity="1" />
+          <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pregunta">
+              <PropertyRef Name="tipoPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Respuesta_Empleado">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+          <End Role="Respuesta" Type="Self.Respuesta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Respuesta">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Respuesta_EvalPregunta">
+          <End Role="Eval_Pregunta" Type="Self.Eval_Pregunta" Multiplicity="1" />
+          <End Role="Respuesta" Type="Self.Respuesta" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Eval_Pregunta">
+              <PropertyRef Name="idEvaluacion" />
+              <PropertyRef Name="idPregunta" />
+            </Principal>
+            <Dependent Role="Respuesta">
+              <PropertyRef Name="idEvaluacion" />
+              <PropertyRef Name="idPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolMenu_Menu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="RolMenu" Type="Self.RolMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolMenu">
+              <PropertyRef Name="Menu_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolMenu_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="RolMenu" Type="Self.RolMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolMenu">
+              <PropertyRef Name="Rol_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolUsuario_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="RolUsuario" Type="Self.RolUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolUsuario">
+              <PropertyRef Name="Rol_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolUsuario_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="RolUsuario" Type="Self.RolUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolUsuario">
+              <PropertyRef Name="Usuario_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Email" EntityType="Self.Email" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emp_Eval" EntityType="Self.Emp_Eval" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Eval_Pregunta" EntityType="Self.Eval_Pregunta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evaluacion" EntityType="Self.Evaluacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Icono" EntityType="Self.Icono" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pregunta" EntityType="Self.Pregunta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Respuesta" EntityType="Self.Respuesta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolMenu" EntityType="Self.RolMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolUsuario" EntityType="Self.RolUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo" EntityType="Self.Tipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_E_tipoEval" Association="Self.FK_E_tipoEval">
+            <End Role="Tipo" EntitySet="Tipo" />
+            <End Role="Evaluacion" EntitySet="Evaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EE_Evaluacion" Association="Self.FK_EE_Evaluacion">
+            <End Role="Evaluacion" EntitySet="Evaluacion" />
+            <End Role="Emp_Eval" EntitySet="Emp_Eval" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EE_idEmpleadoEvaluado" Association="Self.FK_EE_idEmpleadoEvaluado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Emp_Eval" EntitySet="Emp_Eval" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EE_idEmpleadoEvaluador" Association="Self.FK_EE_idEmpleadoEvaluador">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Emp_Eval" EntitySet="Emp_Eval" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empleado_Area" Association="Self.FK_Empleado_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empleado_Empleado" Association="Self.FK_Empleado_Empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Empleado1" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empleado_Usuario" Association="Self.FK_Empleado_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EvalPregunta_Evaluacion" Association="Self.FK_EvalPregunta_Evaluacion">
+            <End Role="Evaluacion" EntitySet="Evaluacion" />
+            <End Role="Eval_Pregunta" EntitySet="Eval_Pregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EvalPregunta_Pregunta" Association="Self.FK_EvalPregunta_Pregunta">
+            <End Role="Pregunta" EntitySet="Pregunta" />
+            <End Role="Eval_Pregunta" EntitySet="Eval_Pregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menu_Menu" Association="Self.FK_Menu_Menu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="Menu1" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pregunta" Association="Self.FK_Pregunta">
+            <End Role="Tipo" EntitySet="Tipo" />
+            <End Role="Pregunta" EntitySet="Pregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Respuesta_Empleado" Association="Self.FK_Respuesta_Empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Respuesta" EntitySet="Respuesta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Respuesta_EvalPregunta" Association="Self.FK_Respuesta_EvalPregunta">
+            <End Role="Eval_Pregunta" EntitySet="Eval_Pregunta" />
+            <End Role="Respuesta" EntitySet="Respuesta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolMenu_Menu" Association="Self.FK_RolMenu_Menu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="RolMenu" EntitySet="RolMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolMenu_Rol" Association="Self.FK_RolMenu_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="RolMenu" EntitySet="RolMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolUsuario_Rol" Association="Self.FK_RolUsuario_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="RolUsuario" EntitySet="RolUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolUsuario_Usuario" Association="Self.FK_RolUsuario_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="RolUsuario" EntitySet="RolUsuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TemplateEntities" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="Menu" EntityType="Model.Menu" />
+          <EntitySet Name="Rol" EntityType="Model.Rol" />
+          <EntitySet Name="RolMenu" EntityType="Model.RolMenu" />
+          <EntitySet Name="RolUsuario" EntityType="Model.RolUsuario" />
+          <EntitySet Name="Usuario" EntityType="Model.Usuario" />
+          <AssociationSet Name="FK_Menu_Menu" Association="Model.FK_Menu_Menu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="Menu1" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolMenu_Menu" Association="Model.FK_RolMenu_Menu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="RolMenu" EntitySet="RolMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolMenu_Rol" Association="Model.FK_RolMenu_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="RolMenu" EntitySet="RolMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolUsuario_Rol" Association="Model.FK_RolUsuario_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="RolUsuario" EntitySet="RolUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolUsuario_Usuario" Association="Model.FK_RolUsuario_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="RolUsuario" EntitySet="RolUsuario" />
+          </AssociationSet>
+          <EntitySet Name="Email" EntityType="Model.Email" />
+          <EntitySet Name="Icono" EntityType="Model.Icono" />
+          <EntitySet Name="Area" EntityType="Model.Area" />
+          <EntitySet Name="Empleado" EntityType="Model.Empleado" />
+          <EntitySet Name="Evaluacion" EntityType="Model.Evaluacion" />
+          <EntitySet Name="Tipo" EntityType="Model.Tipo" />
+          <AssociationSet Name="FK_Empleado_Area" Association="Model.FK_Empleado_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empleado_Empleado" Association="Model.FK_Empleado_Empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Empleado1" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empleado_Usuario" Association="Model.FK_Empleado_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_tipoEval" Association="Model.FK_E_tipoEval">
+            <End Role="Tipo" EntitySet="Tipo" />
+            <End Role="Evaluacion" EntitySet="Evaluacion" />
+          </AssociationSet>
+          <EntitySet Name="Eval_Pregunta" EntityType="Model.Eval_Pregunta" />
+          <EntitySet Name="Pregunta" EntityType="Model.Pregunta" />
+          <EntitySet Name="Respuesta" EntityType="Model.Respuesta" />
+          <AssociationSet Name="FK_Respuesta_Empleado" Association="Model.FK_Respuesta_Empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Respuesta" EntitySet="Respuesta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EvalPregunta_Evaluacion" Association="Model.FK_EvalPregunta_Evaluacion">
+            <End Role="Evaluacion" EntitySet="Evaluacion" />
+            <End Role="Eval_Pregunta" EntitySet="Eval_Pregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EvalPregunta_Pregunta" Association="Model.FK_EvalPregunta_Pregunta">
+            <End Role="Pregunta" EntitySet="Pregunta" />
+            <End Role="Eval_Pregunta" EntitySet="Eval_Pregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Respuesta_EvalPregunta" Association="Model.FK_Respuesta_EvalPregunta">
+            <End Role="Eval_Pregunta" EntitySet="Eval_Pregunta" />
+            <End Role="Respuesta" EntitySet="Respuesta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pregunta" Association="Model.FK_Pregunta">
+            <End Role="Tipo" EntitySet="Tipo" />
+            <End Role="Pregunta" EntitySet="Pregunta" />
+          </AssociationSet>
+          <EntitySet Name="Emp_Eval" EntityType="Model.Emp_Eval" />
+          <AssociationSet Name="FK_EE_Evaluacion" Association="Model.FK_EE_Evaluacion">
+            <End Role="Evaluacion" EntitySet="Evaluacion" />
+            <End Role="Emp_Eval" EntitySet="Emp_Eval" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EE_idEmpleadoEvaluado" Association="Model.FK_EE_idEmpleadoEvaluado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Emp_Eval" EntitySet="Emp_Eval" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EE_idEmpleadoEvaluador" Association="Model.FK_EE_idEmpleadoEvaluador">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Emp_Eval" EntitySet="Emp_Eval" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Menu_Id" Type="Int32" />
+          <Property Name="Url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Icono" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Texto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ayuda" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Orden" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Menu1" Relationship="Model.FK_Menu_Menu" FromRole="Menu" ToRole="Menu1" />
+          <NavigationProperty Name="Menu2" Relationship="Model.FK_Menu_Menu" FromRole="Menu1" ToRole="Menu" />
+          <NavigationProperty Name="RolMenu" Relationship="Model.FK_RolMenu_Menu" FromRole="Menu" ToRole="RolMenu" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RolMenu" Relationship="Model.FK_RolMenu_Rol" FromRole="Rol" ToRole="RolMenu" />
+          <NavigationProperty Name="RolUsuario" Relationship="Model.FK_RolUsuario_Rol" FromRole="Rol" ToRole="RolUsuario" />
+        </EntityType>
+        <EntityType Name="RolMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rol_Id" Type="Int32" Nullable="false" />
+          <Property Name="Menu_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Menu" Relationship="Model.FK_RolMenu_Menu" FromRole="RolMenu" ToRole="Menu" />
+          <NavigationProperty Name="Rol" Relationship="Model.FK_RolMenu_Rol" FromRole="RolMenu" ToRole="Rol" />
+        </EntityType>
+        <EntityType Name="RolUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rol_Id" Type="Int32" Nullable="false" />
+          <Property Name="Usuario_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Rol" Relationship="Model.FK_RolUsuario_Rol" FromRole="RolUsuario" ToRole="Rol" />
+          <NavigationProperty Name="Usuario" Relationship="Model.FK_RolUsuario_Usuario" FromRole="RolUsuario" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido_Paterno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido_Materno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ultimo_Acceso" Type="DateTime" Precision="3" />
+          <Property Name="Debe_Cambiar_Password" Type="Boolean" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="RolUsuario" Relationship="Model.FK_RolUsuario_Usuario" FromRole="Usuario" ToRole="RolUsuario" />
+          <NavigationProperty Name="Empleado" Relationship="Model.FK_Empleado_Usuario" FromRole="Usuario" ToRole="Empleado" />
+        </EntityType>
+        <Association Name="FK_Menu_Menu">
+          <End Type="Model.Menu" Role="Menu" Multiplicity="0..1" />
+          <End Type="Model.Menu" Role="Menu1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Menu1">
+              <PropertyRef Name="Menu_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolMenu_Menu">
+          <End Type="Model.Menu" Role="Menu" Multiplicity="1" />
+          <End Type="Model.RolMenu" Role="RolMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolMenu">
+              <PropertyRef Name="Menu_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolMenu_Rol">
+          <End Type="Model.Rol" Role="Rol" Multiplicity="1" />
+          <End Type="Model.RolMenu" Role="RolMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolMenu">
+              <PropertyRef Name="Rol_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolUsuario_Rol">
+          <End Type="Model.Rol" Role="Rol" Multiplicity="1" />
+          <End Type="Model.RolUsuario" Role="RolUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolUsuario">
+              <PropertyRef Name="Rol_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolUsuario_Usuario">
+          <End Type="Model.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="Model.RolUsuario" Role="RolUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolUsuario">
+              <PropertyRef Name="Usuario_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Email">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreRemitente" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DireccionRemitente" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DireccionesCC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DireccionesCCO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Asunto" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Cuerpo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Icono">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Empleado" Relationship="Model.FK_Empleado_Area" FromRole="Area" ToRole="Empleado" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="cargo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="id_Aera" Type="Int32" Nullable="false" />
+          <Property Name="id_Empleado_Jefe" Type="Int32" />
+          <NavigationProperty Name="Area" Relationship="Model.FK_Empleado_Area" FromRole="Empleado" ToRole="Area" />
+          <NavigationProperty Name="Empleado1" Relationship="Model.FK_Empleado_Empleado" FromRole="Empleado" ToRole="Empleado1" />
+          <NavigationProperty Name="Empleado2" Relationship="Model.FK_Empleado_Empleado" FromRole="Empleado1" ToRole="Empleado" />
+          <NavigationProperty Name="Usuario" Relationship="Model.FK_Empleado_Usuario" FromRole="Empleado" ToRole="Usuario" />
+          <NavigationProperty Name="Respuesta" Relationship="Model.FK_Respuesta_Empleado" FromRole="Empleado" ToRole="Respuesta" />
+          <NavigationProperty Name="Emp_Eval" Relationship="Model.FK_EE_idEmpleadoEvaluado" FromRole="Empleado" ToRole="Emp_Eval" />
+          <NavigationProperty Name="Emp_Eval1" Relationship="Model.FK_EE_idEmpleadoEvaluador" FromRole="Empleado" ToRole="Emp_Eval" />
+          </EntityType>
+        <EntityType Name="Evaluacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="tipoEval" Type="Int32" Nullable="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Tipo" Relationship="Model.FK_E_tipoEval" FromRole="Evaluacion" ToRole="Tipo" />
+          <NavigationProperty Name="Eval_Pregunta" Relationship="Model.FK_EvalPregunta_Evaluacion" FromRole="Evaluacion" ToRole="Eval_Pregunta" />
+          <NavigationProperty Name="Emp_Eval" Relationship="Model.FK_EE_Evaluacion" FromRole="Evaluacion" ToRole="Emp_Eval" />
+        </EntityType>
+        <EntityType Name="Tipo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoria" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Evaluacion" Relationship="Model.FK_E_tipoEval" FromRole="Tipo" ToRole="Evaluacion" />
+          <NavigationProperty Name="Pregunta" Relationship="Model.FK_Pregunta" FromRole="Tipo" ToRole="Pregunta" />
+        </EntityType>
+        <Association Name="FK_Empleado_Area">
+          <End Type="Model.Area" Role="Area" Multiplicity="1" />
+          <End Type="Model.Empleado" Role="Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="id_Aera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empleado_Empleado">
+          <End Type="Model.Empleado" Role="Empleado" Multiplicity="0..1" />
+          <End Type="Model.Empleado" Role="Empleado1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleado1">
+              <PropertyRef Name="id_Empleado_Jefe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empleado_Usuario">
+          <End Type="Model.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="Model.Empleado" Role="Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_tipoEval">
+          <End Type="Model.Tipo" Role="Tipo" Multiplicity="1" />
+          <End Type="Model.Evaluacion" Role="Evaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Evaluacion">
+              <PropertyRef Name="tipoEval" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Eval_Pregunta">
+          <Key>
+            <PropertyRef Name="idEvaluacion" />
+            <PropertyRef Name="idPregunta" />
+          </Key>
+          <Property Name="idEvaluacion" Type="Int32" Nullable="false" />
+          <Property Name="idPregunta" Type="Int32" Nullable="false" />
+          <Property Name="comentario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Evaluacion" Relationship="Model.FK_EvalPregunta_Evaluacion" FromRole="Eval_Pregunta" ToRole="Evaluacion" />
+          <NavigationProperty Name="Pregunta" Relationship="Model.FK_EvalPregunta_Pregunta" FromRole="Eval_Pregunta" ToRole="Pregunta" />
+          <NavigationProperty Name="Respuesta" Relationship="Model.FK_Respuesta_EvalPregunta" FromRole="Eval_Pregunta" ToRole="Respuesta" />
+        </EntityType>
+        <EntityType Name="Pregunta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tipoPregunta" Type="Int32" Nullable="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Eval_Pregunta" Relationship="Model.FK_EvalPregunta_Pregunta" FromRole="Pregunta" ToRole="Eval_Pregunta" />
+          <NavigationProperty Name="Tipo" Relationship="Model.FK_Pregunta" FromRole="Pregunta" ToRole="Tipo" />
+        </EntityType>
+        <EntityType Name="Respuesta">
+          <Key>
+            <PropertyRef Name="idPregunta" />
+            <PropertyRef Name="idEvaluacion" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="valor" Type="Int32" />
+          <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="idPregunta" Type="Int32" Nullable="false" />
+          <Property Name="idEvaluacion" Type="Int32" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleado" Relationship="Model.FK_Respuesta_Empleado" FromRole="Respuesta" ToRole="Empleado" />
+          <NavigationProperty Name="Eval_Pregunta" Relationship="Model.FK_Respuesta_EvalPregunta" FromRole="Respuesta" ToRole="Eval_Pregunta" />
+        </EntityType>
+        <Association Name="FK_Respuesta_Empleado">
+          <End Type="Model.Empleado" Role="Empleado" Multiplicity="1" />
+          <End Type="Model.Respuesta" Role="Respuesta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Respuesta">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EvalPregunta_Evaluacion">
+          <End Type="Model.Evaluacion" Role="Evaluacion" Multiplicity="1" />
+          <End Type="Model.Eval_Pregunta" Role="Eval_Pregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evaluacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Eval_Pregunta">
+              <PropertyRef Name="idEvaluacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EvalPregunta_Pregunta">
+          <End Type="Model.Pregunta" Role="Pregunta" Multiplicity="1" />
+          <End Type="Model.Eval_Pregunta" Role="Eval_Pregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pregunta">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Eval_Pregunta">
+              <PropertyRef Name="idPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Respuesta_EvalPregunta">
+          <End Type="Model.Eval_Pregunta" Role="Eval_Pregunta" Multiplicity="1" />
+          <End Type="Model.Respuesta" Role="Respuesta" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Eval_Pregunta">
+              <PropertyRef Name="idEvaluacion" />
+              <PropertyRef Name="idPregunta" />
+            </Principal>
+            <Dependent Role="Respuesta">
+              <PropertyRef Name="idEvaluacion" />
+              <PropertyRef Name="idPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pregunta">
+          <End Type="Model.Tipo" Role="Tipo" Multiplicity="1" />
+          <End Type="Model.Pregunta" Role="Pregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pregunta">
+              <PropertyRef Name="tipoPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Emp_Eval">
+          <Key>
+            <PropertyRef Name="idEmpleadoEvaluado" />
+            <PropertyRef Name="idEmpleadoEvaluador" />
+            <PropertyRef Name="idEvaluacion" />
+          </Key>
+          <Property Name="idEmpleadoEvaluado" Type="Int32" Nullable="false" />
+          <Property Name="idEmpleadoEvaluador" Type="Int32" Nullable="false" />
+          <Property Name="idEvaluacion" Type="Int32" Nullable="false" />
+          <Property Name="comentario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="fechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Evaluacion" Relationship="Model.FK_EE_Evaluacion" FromRole="Emp_Eval" ToRole="Evaluacion" />
+          <NavigationProperty Name="Empleado" Relationship="Model.FK_EE_idEmpleadoEvaluado" FromRole="Emp_Eval" ToRole="Empleado" />
+          <NavigationProperty Name="Empleado1" Relationship="Model.FK_EE_idEmpleadoEvaluador" FromRole="Emp_Eval" ToRole="Empleado" />
+        </EntityType>
+        <Association Name="FK_EE_Evaluacion">
+          <End Type="Model.Evaluacion" Role="Evaluacion" Multiplicity="1" />
+          <End Type="Model.Emp_Eval" Role="Emp_Eval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evaluacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Emp_Eval">
+              <PropertyRef Name="idEvaluacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EE_idEmpleadoEvaluado">
+          <End Type="Model.Empleado" Role="Empleado" Multiplicity="1" />
+          <End Type="Model.Emp_Eval" Role="Emp_Eval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Emp_Eval">
+              <PropertyRef Name="idEmpleadoEvaluado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EE_idEmpleadoEvaluador">
+          <End Type="Model.Empleado" Role="Empleado" Multiplicity="1" />
+          <End Type="Model.Emp_Eval" Role="Emp_Eval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Emp_Eval">
+              <PropertyRef Name="idEmpleadoEvaluador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="TemplateEntities">
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="Model.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="Ayuda" ColumnName="Ayuda" />
+                <ScalarProperty Name="Texto" ColumnName="Texto" />
+                <ScalarProperty Name="Icono" ColumnName="Icono" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Menu_Id" ColumnName="Menu_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="Model.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolMenu">
+            <EntityTypeMapping TypeName="Model.RolMenu">
+              <MappingFragment StoreEntitySet="RolMenu">
+                <ScalarProperty Name="Menu_Id" ColumnName="Menu_Id" />
+                <ScalarProperty Name="Rol_Id" ColumnName="Rol_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolUsuario">
+            <EntityTypeMapping TypeName="Model.RolUsuario">
+              <MappingFragment StoreEntitySet="RolUsuario">
+                <ScalarProperty Name="Usuario_Id" ColumnName="Usuario_Id" />
+                <ScalarProperty Name="Rol_Id" ColumnName="Rol_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="Model.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Debe_Cambiar_Password" ColumnName="Debe_Cambiar_Password" />
+                <ScalarProperty Name="Ultimo_Acceso" ColumnName="Ultimo_Acceso" />
+                <ScalarProperty Name="Apellido_Materno" ColumnName="Apellido_Materno" />
+                <ScalarProperty Name="Apellido_Paterno" ColumnName="Apellido_Paterno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Email">
+            <EntityTypeMapping TypeName="Model.Email">
+              <MappingFragment StoreEntitySet="Email">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Cuerpo" ColumnName="Cuerpo" />
+                <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+                <ScalarProperty Name="DireccionesCCO" ColumnName="DireccionesCCO" />
+                <ScalarProperty Name="DireccionesCC" ColumnName="DireccionesCC" />
+                <ScalarProperty Name="DireccionRemitente" ColumnName="DireccionRemitente" />
+                <ScalarProperty Name="NombreRemitente" ColumnName="NombreRemitente" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Icono">
+            <EntityTypeMapping TypeName="Model.Icono">
+              <MappingFragment StoreEntitySet="Icono">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="Model.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleado">
+            <EntityTypeMapping TypeName="Model.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="id_Empleado_Jefe" ColumnName="id_Empleado_Jefe" />
+                <ScalarProperty Name="id_Aera" ColumnName="id_Aera" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="id_Usuario" ColumnName="id_Usuario" />
+                <ScalarProperty Name="cargo" ColumnName="cargo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evaluacion">
+            <EntityTypeMapping TypeName="Model.Evaluacion">
+              <MappingFragment StoreEntitySet="Evaluacion">
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="tipoEval" ColumnName="tipoEval" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo">
+            <EntityTypeMapping TypeName="Model.Tipo">
+              <MappingFragment StoreEntitySet="Tipo">
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eval_Pregunta">
+            <EntityTypeMapping TypeName="Model.Eval_Pregunta">
+              <MappingFragment StoreEntitySet="Eval_Pregunta">
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="comentario" ColumnName="comentario" />
+                <ScalarProperty Name="idPregunta" ColumnName="idPregunta" />
+                <ScalarProperty Name="idEvaluacion" ColumnName="idEvaluacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pregunta">
+            <EntityTypeMapping TypeName="Model.Pregunta">
+              <MappingFragment StoreEntitySet="Pregunta">
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="tipoPregunta" ColumnName="tipoPregunta" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Respuesta">
+            <EntityTypeMapping TypeName="Model.Respuesta">
+              <MappingFragment StoreEntitySet="Respuesta">
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="idEvaluacion" ColumnName="idEvaluacion" />
+                <ScalarProperty Name="idPregunta" ColumnName="idPregunta" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emp_Eval">
+            <EntityTypeMapping TypeName="Model.Emp_Eval">
+              <MappingFragment StoreEntitySet="Emp_Eval">
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="comentario" ColumnName="comentario" />
+                <ScalarProperty Name="idEvaluacion" ColumnName="idEvaluacion" />
+                <ScalarProperty Name="idEmpleadoEvaluador" ColumnName="idEmpleadoEvaluador" />
+                <ScalarProperty Name="idEmpleadoEvaluado" ColumnName="idEmpleadoEvaluado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
