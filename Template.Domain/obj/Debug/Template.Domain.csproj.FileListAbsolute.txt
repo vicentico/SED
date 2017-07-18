@@ -30,3 +30,12 @@ D:\GGaldamesD\Template\Template.Domain\bin\Debug\dotMemory.Unit.xml
 D:\GGaldamesD\Template\Template.Domain\obj\Debug\Template.Domain.csprojResolveAssemblyReference.cache
 D:\GGaldamesD\Template\Template.Domain\obj\Debug\Template.Domain.dll
 D:\GGaldamesD\Template\Template.Domain\obj\Debug\Template.Domain.pdb
+C:\Users\cpoblete\Desktop\Organiza_v1\SED\GIT\Template.Domain\bin\Debug\Template.Domain.dll.config
+C:\Users\cpoblete\Desktop\Organiza_v1\SED\GIT\Template.Domain\bin\Debug\Template.Domain.dll
+C:\Users\cpoblete\Desktop\Organiza_v1\SED\GIT\Template.Domain\bin\Debug\Template.Domain.pdb
+C:\Users\cpoblete\Desktop\Organiza_v1\SED\GIT\Template.Domain\bin\Debug\dotMemory.Unit.dll
+C:\Users\cpoblete\Desktop\Organiza_v1\SED\GIT\Template.Domain\bin\Debug\System.dll
+C:\Users\cpoblete\Desktop\Organiza_v1\SED\GIT\Template.Domain\bin\Debug\dotMemory.Unit.xml
+C:\Users\cpoblete\Desktop\Organiza_v1\SED\GIT\Template.Domain\obj\Debug\Template.Domain.csprojResolveAssemblyReference.cache
+C:\Users\cpoblete\Desktop\Organiza_v1\SED\GIT\Template.Domain\obj\Debug\Template.Domain.dll
+C:\Users\cpoblete\Desktop\Organiza_v1\SED\GIT\Template.Domain\obj\Debug\Template.Domain.pdb
