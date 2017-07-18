@@ -130,18 +130,31 @@ namespace Template.Service.DAO
 
         
 
-       public static List<Pregunta> VerPreguntasEvaluacion(int Id )
+       public static List<Pregunta> VerPreguntasEvaluacion(int Id,  bool? Estado=null)
         {
           
             using (var Dc = new TemplateEntities())
             {
-                var Preguntas = Dc
-                    .Pregunta
-                    .Include("Eval_Pregunta")
-                    .Where(X =>
-                        X.Eval_Pregunta.Any(Y => Y.idEvaluacion == Id) //&& Y.activo ==Estado
-                    )
-                    .ToList();
+                //var Preguntas;
+                //if (Estado!=null)
+                //{
+                //    var Preguntas = Dc
+                //  .Pregunta
+                //  .Include("Eval_Pregunta")
+                //  .Where(X =>
+                //      X.Eval_Pregunta.Any(Y => Y.idEvaluacion == Id) && X.activo ==Estado
+                //  )
+                //  .ToList();
+                //}
+                //else
+                //{}
+                    var Preguntas = Dc
+                       .Pregunta
+                       .Include("Eval_Pregunta")
+                       .Where(X =>
+                           X.Eval_Pregunta.Any(Y => Y.idEvaluacion == Id) //&& Y.activo ==Estado
+                       )
+                       .ToList();
 
                 return Preguntas.ToList();
             }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 using Template.Domain.Enums;
+using Template.Domain.Model;
 using Template.Engine.Data.Models;
 using Template.Engine.Helper.Alert;
 using Template.Engine.MVC;
@@ -21,6 +22,95 @@ namespace Template.MVCApp.Areas.Evaluaciones.Controllers
             ViewBag.Tipos = Tipos;
             return View();
         }
+
+
+        [HttpGet, AuthorizeRole(Roles = "Analista , Administrador")]
+        public ActionResult RegistroEvaluacion()
+        {
+            var Tipos = TipoService.GetAll("Eval");
+            ViewBag.Tipos = Tipos;
+            return View();
+        }
+
+
+
+        [HttpGet, AuthorizeRole(Roles = "Administrador")]
+        public ActionResult FindByIdEmpleado(bool idEstado)
+        {
+            var Emplead_ = EmpleadoService.GetByIdUsuario(User.Identity.Name);
+            var Tipos = TipoService.GetAll("Eval");
+            ViewBag.Tipos = Tipos;
+
+            var Evaluacion_ = EvaluacionService.FindByIdEmpleado(Emplead_.id, idEstado);
+
+            //var btnAssignPersona = "<a href='javascript:void(0)' class='pl8 pr8 link-action assignpersona' title='Gestionar Personas' data-id='{0}'><i class='icon-tasks'></i></a>";
+            var btnVerPreguntasEvaluacion = "<a href='javascript:void(0)' class='pl8 pr8 link-action verpreguntasevaluacion' title='Ver Evaluación' data-id='{0}'><i class='icon-zoom-in'></i></a>";
+            var btnResponderEvaluacion = "<a href='javascript:void(0)' class='pl8 pr8 link-action enviarevaluacion' title='Enviar Evaluación' data-id='{0}'><i class='icon-search'></i></a>";
+            //var btnEdit = "<a href='javascript:void(0)' class='pl8 pr8 link-action edit' title='Editar' data-id='{0}'><i class='icon-edit'></i></a>";
+            //var btnRemove = "<a href='javascript:void(0)' class='pl8 pr8 link-action remove' title='Borrar' data-id='{0}'><i class='icon-remove'></i></a>";
+
+
+
+            var Evaluacion__ = Evaluacion_.Select(X => new
+            {
+                Id = X.id,
+                X.id,
+                //MenuPadre = X.Menu2 != null ? X.Menu2.Texto : "",
+                X.nombre,
+                //Icono = string.Format("<i class='{0} fs18 link-action'></i>", X.Icono),
+                X.descripcion,
+                //.FirstOrDefault(X => X.nombre.Trim().ToLower() == Nombre.Trim()
+                tipoEval = TipoService.FindById(X.tipoEval).nombre.Trim(),
+                fechaCreacion = X.fechaCreacion.ToString(),
+                fechaModificacion = X.fechaModificacion.ToString(),
+                Acciones = string.Format( btnResponderEvaluacion + btnVerPreguntasEvaluacion , X.id)
+            }).ToList();
+
+            return JsonOutPut(ResultJson.MensajeDataExito("", Evaluacion__));
+
+            }
+
+
+
+        [HttpGet, AuthorizeRole(Roles = "Administrador")]
+        public ActionResult VerFormularioEvaluacion(bool Estado)
+        {
+            var Emplead_ = EmpleadoService.GetByIdUsuario(User.Identity.Name);
+            var Tipos = TipoService.GetAll("Eval");
+            ViewBag.Tipos = Tipos;
+
+            var Evaluacion_ = EvaluacionService.FindByIdEmpleado(Emplead_.id, Estado);
+
+            //var btnAssignPersona = "<a href='javascript:void(0)' class='pl8 pr8 link-action assignpersona' title='Gestionar Personas' data-id='{0}'><i class='icon-tasks'></i></a>";
+            var btnVerPreguntasEvaluacion = "<a href='javascript:void(0)' class='pl8 pr8 link-action verpreguntasevaluacion' title='Ver Evaluación' data-id='{0}'><i class='icon-zoom-in'></i></a>";
+            var btnResponderEvaluacion = "<a href='javascript:void(0)' class='pl8 pr8 link-action enviarevaluacion' title='Enviar Evaluación' data-id='{0}'><i class='icon-search'></i></a>";
+            //var btnEdit = "<a href='javascript:void(0)' class='pl8 pr8 link-action edit' title='Editar' data-id='{0}'><i class='icon-edit'></i></a>";
+            //var btnRemove = "<a href='javascript:void(0)' class='pl8 pr8 link-action remove' title='Borrar' data-id='{0}'><i class='icon-remove'></i></a>";
+
+
+
+            var Evaluacion__ = Evaluacion_.Select(X => new
+            {
+                Id = X.id,
+                X.id,
+                //MenuPadre = X.Menu2 != null ? X.Menu2.Texto : "",
+                X.nombre,
+                //Icono = string.Format("<i class='{0} fs18 link-action'></i>", X.Icono),
+                X.descripcion,
+                //.FirstOrDefault(X => X.nombre.Trim().ToLower() == Nombre.Trim()
+                tipoEval = TipoService.FindById(X.tipoEval).nombre.Trim(),
+                fechaCreacion = X.fechaCreacion.ToString(),
+                fechaModificacion = X.fechaModificacion.ToString(),
+                Acciones = string.Format(btnResponderEvaluacion + btnVerPreguntasEvaluacion, X.id)
+            }).ToList();
+
+            return JsonOutPut(ResultJson.MensajeDataExito("", Evaluacion__));
+
+        }
+
+
+
+
 
         [HttpGet, AuthorizeRole(Roles = "Administrador")]
         public ActionResult EnviarEvaluacion(int Id)
@@ -44,9 +134,7 @@ namespace Template.MVCApp.Areas.Evaluaciones.Controllers
             var Pregunta_ = PreguntaService.VerPreguntasEvaluacion(Id);
 
             var btnAssignEvaluacion = "<a href='javascript:void(0)' class='pl8 pr8 link-action assignevaluacion' title='Gestionar Evaluaciones' data-id='{0}'><i class='icon-tasks'></i></a>";
-            //var btnEdit = "<a href='javascript:void(0)' class='pl8 pr8 link-action edit' title='Editar' data-id='{0}'><i class='icon-edit'></i></a>";
-            //var btnRemove = "<a href='javascript:void(0)' class='pl8 pr8 link-action remove' title='Borrar' data-id='{0}'><i class='icon-remove'></i></a>";
-
+         
             var Pregunta__ = Pregunta_.Select(X => new
             {
                 Id = X.id,
@@ -106,6 +194,7 @@ namespace Template.MVCApp.Areas.Evaluaciones.Controllers
         //[HttpPost, AuthorizeRole(Roles = "Administrador")]
         public ActionResult GetEvaluacion(string Nombre, string Descripcion, int Tipo, bool? Estado)
         {
+
             var Evaluacion_ = EvaluacionService.GetEvaluacion(Nombre, Descripcion, Tipo, Estado);
 
             var btnAssignPersona = "<a href='javascript:void(0)' class='pl8 pr8 link-action assignpersona' title='Gestionar Personas' data-id='{0}'><i class='icon-tasks'></i></a>";

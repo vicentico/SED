@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Template.MVCApp.Areas.Administration.AdministrationAreaRegistration" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Administration\AdministrationAreaRegistration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Areas.Administration.Controllers.HomeController" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Administration\Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Areas.Administration.Controllers.MenuController" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAABAAAAQAAAAAAAAEAAAEAIAA=</HashCode>
+      <FileName>Areas\Administration\Controllers\MenuController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Areas.Administration.Controllers.RoleController" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAABAAAAAAAAAAAAAEAAAEAAAA=</HashCode>
+      <FileName>Areas\Administration\Controllers\RoleController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Areas.Administration.Controllers.UserController" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAwAAAAAAABAAACQAAAAACAAEAAAFAIAA=</HashCode>
+      <FileName>Areas\Administration\Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Areas.Evaluaciones.Controllers.AreaController" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAEAACEAAAA=</HashCode>
+      <FileName>Areas\Evaluaciones\Controllers\AreaController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Areas.Evaluaciones.Controllers.EmpleadoController">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAEAAAEAAAA=</HashCode>
+      <FileName>Areas\Evaluaciones\Controllers\EmpleadoController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Areas.Evaluaciones.Controllers.EvaluacionController">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQIAAAAAAAAgQAAAAAAFAABAAAAAAAAAAEBAAEAgAA=</HashCode>
+      <FileName>Areas\Evaluaciones\Controllers\EvaluacionController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Areas.Evaluaciones.Controllers.HomeController" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Evaluaciones\Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Areas.Evaluaciones.Controllers.PreguntaController" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAACAAAAABAAAAAAAAAAAAAEBAAEAAAA=</HashCode>
+      <FileName>Areas\Evaluaciones\Controllers\PreguntaController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Areas.Evaluaciones.Controllers.RespuestaController" Collapsed="true">
+    <Position X="7" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Evaluaciones\Controllers\RespuestaController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Areas.Evaluaciones.Controllers.TipoController" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAABAAAAAAAAAAAAAEAAAEAAAA=</HashCode>
+      <FileName>Areas\Evaluaciones\Controllers\TipoController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Areas.Evaluaciones.EvaluacionesAreaRegistration" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Evaluaciones\EvaluacionesAreaRegistration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Controllers.AccessController" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAQAgAAAAAAAAAIACAAAAAAAAAEQAAAAAAI=</HashCode>
+      <FileName>Controllers\AccessController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Controllers.HomeController" Collapsed="true">
+    <Position X="5.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAEAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Engine.FilterConfig" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Engine\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Engine.RouteConfig" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Engine.WebHelper" Collapsed="true">
+    <Position X="3.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAQAAAE=</HashCode>
+      <FileName>Engine\WebHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Global" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Template.MVCApp.Model.MenuVM" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAIAAAAAAQAAAAAACAAAAgCAAAA=</HashCode>
+      <FileName>Model\MenuVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

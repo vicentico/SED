@@ -175,7 +175,7 @@ namespace Template.MVCApp.Areas.Administration.Controllers
 	    {
 		    var RolesUnAssigned = RoleService.GetUnAssignedUser(UserId);
             var RolesAssigned = RoleService.GetAssignedUser(UserId);
-
+	        ViewBag.iduser = UserId;
             ViewBag.RolesUnAssigned = RolesUnAssigned;
             ViewBag.RolesAssigned = RolesAssigned;
 

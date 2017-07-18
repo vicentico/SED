@@ -7,10 +7,7 @@
     ViewBag.Titulo = "Selección de Empleados a Evaluar";
     var Ids = ViewBag.idEvaluacion;
     var Areas = (List<Area>)ViewBag.Areas;
-    //var Empleados = (List<Empleado>)ViewBag.Empleados;
     var EvaluacionId = ViewBag.id;
-
-    //var Usuarios = (List<Usuario>)ViewBag.Usuarios;
 }
 
 
@@ -18,8 +15,8 @@
 
 <div id="@Id">
     <div class="modal-header">
-        <h4><i class="icon-tasks mr8 text-danger"></i>Asignar Roles</h4>
-        <hr />
+        <h4><i class="icon-tasks mr8 text-danger"></i>Envío de Evaluación</h4>
+        <hr/>
     </div>
     <div class="modal-body">
         <form action="@Url.Action("EnviarEvaluacion")" method="POST">
@@ -32,7 +29,7 @@
                     <div class="row-fluid mb0">
                         <div class="span6">
                             @Html.Label("Cargo", "Cargo")
-                            @Html.TextBox("Cargo", null, new { @class = "input-block-level", @placeholder = "Cargo Empleado" })
+                            @Html.TextBox("Cargo", null, new {@class = "input-block-level", @placeholder = "Cargo Empleado"})
                         </div>
 
                         <div class="span6">
@@ -41,13 +38,13 @@
                                 <option value="0">Seleccione...</option>
                                 @foreach (var Area_ in Areas)
 
-                    {
-                        {
-                            var selected = "";
+                                {
+                                    {
+                                        var selected = "";
 
                                         <option value="@Area_.id" @selected>@Area_.nombre</option>
-                        }
-                    }
+                                    }
+                                }
                             </select>
                         </div>
 
@@ -66,7 +63,7 @@
                 </div>
             </div>
 
-            <div class="row-fluid">
+            @*<div class="row-fluid">
                 <div class="span12">
                     <table id="GridEmpleados" class="table table-condensed table-hover table-striped table-bordered table-responsive" data-bootgrid data-case-sensitive="false">
                         <thead>
@@ -78,66 +75,74 @@
 
                                 <th data-header-align="center" data-header-css-class="w40" data-css-class="text-center text-middle" data-column-id="Email">Email</th>
 
-                                @*<th data-header-align="center" data-header-css-class="w15" data-css-class="text-center text-middle" data-column-id="Estado">Estado</th>*@
                                 <th data-header-align="center" data-header-css-class="w10" data-css-class="text-center text-middle" data-column-id="Acciones">Evaluar</th>
                             </tr>
                         </thead>
                     </table>
                 </div>
-            </div>
-
-            @*<div class="row-fluid mb0">
-                <div class="span12">
-                    <a href="javascript:void(0);" class="btn btn-warning pull-left" id="btnCerrarEE">
-                        <i class="icon-eraser pr8"></i>Cerrar
-                    </a>
-                    <a href="javascript:void(0);" class="btn btn-primary pull-right" id="btnEnviarEE">
-                        <i class="icon-search pr8"></i>Enviar
-                    </a>
-                </div>
             </div>*@
+
+
 
         </form>
     </div>
 
-    <div class="modal-footer">
-        <hr />
-        <a href="javascript:void(0);" class="btn btn-warning pull-left" id="btnCerrarEE">
-            <i class="icon-eraser pr8"></i>Cerrar
-        </a>
-        <a href="javascript:void(0);" class="btn btn-primary pull-right" id="btnEnviarEE">
-            <i class="icon-search pr8"></i>Enviar
-        </a>
+
+</div>
+
+
+<div class="row-fluid">
+    <div class="span12">
+        <table id="GridEmpleados" class="table table-condensed table-hover table-striped table-bordered table-responsive" data-bootgrid data-case-sensitive="false">
+            <thead>
+            <tr>
+                <th data-column-id="Id" data-identifier="true" data-visible="false" data-visible-in-selection="false" data-searchable="false"></th>
+                <th data-header-align="center" data-header-css-class="w25" data-css-class="text-center text-middle" data-column-id="nombre">Nombre Empleado</th>
+
+                <th data-header-align="center" data-header-css-class="w25" data-css-class="text-justify text-middle" data-column-id="id_Empleado_Jefe">Jefatura</th>
+
+                <th data-header-align="center" data-header-css-class="w40" data-css-class="text-center text-middle" data-column-id="Email">Email</th>
+
+                <th data-header-align="center" data-header-css-class="w10" data-css-class="text-center text-middle" data-column-id="Acciones">Evaluar</th>
+            </tr>
+            </thead>
+        </table>
     </div>
 </div>
+
+
+<div class="modal-footer">
+
+    <hr/>
+    <a href="javascript:void(0);" class="btn btn-warning pull-left" data-dismiss="modal">
+        <i class="icon-remove mr8"></i>Cancelar
+    </a>
+    <a id="btnEnviarEE" href="javascript:void(0);" class="btn btn-success pull-right">
+        <i class="icon-save mr8"></i>Enviar
+    </a>
+
+</div>
+
 <script>
         $(function () {
 
             var Modal_ = $("#@Id");
             var Id = $(Modal_).find("#Id");
-
-
-            var btnCerrarEE = $("#btnCerrarEE");
+            
             var btnEnviarEE = $("#btnEnviarEE");
-
             var btnClearEE = $("#btnClearEE");
             var btnQueryEE = $("#btnQueryEE");
             var GridEmpleados = $("#GridEmpleados");
-
-            var ideval = $("#GridEmpleados");
-
-            //var Nombre = $("#Nombre");
             var Cargo = $("#Cargo");
-            //var JefeId = $("#JefeId");
             var AreaId = $("#AreaId");
             $(GridEmpleados).bootgrid({
                 customButtons: [
                     {
                         id: "selectall_Ofertas",
                         tooltip: "Seleccionar todos para enviar evaluación",
-                        icon: ["icon-ok", "icon-remove"],
-                        style: ["success", "danger"],
-                        label: ["Seleccionar", "Deseleccionar"],
+                        icon: ["icon-remove", "icon-ok"],
+                        style: ["danger", "success"],
+                        label: ["Deseleccionar", "Seleccionar"],
                         type: "toggle",
                         width: 70
                     }
@@ -146,9 +151,9 @@
             .on("loaded.rs.jquery.bootgrid", function (e) {
                 e.preventDefault();
 
-                var btnEdit = $(this).find(".edit");
-                var btnRemove = $(this).find(".remove");
-
+                //var btnEdit = $(this).find(".edit");
+                //var btnRemove = $(this).find(".remove");
+            });
 
                 // Inicio selección de empleados
                 $("input[type='checkbox']").on("change", function () {
@@ -245,13 +250,8 @@
 
                 });
 
-                $(btnCerrarEE).click(function (e_) {
-                    e_.preventDefault();
-                    //GridEmpleados.Close.click();
-                    $("#GridEmpleados .close").click();
-
-                });
-            });
+         
+           
 
             $(btnClearEE).click(function (e) {
                 e.preventDefault();

@@ -15,6 +15,15 @@ namespace Template.MVCApp.Areas.Evaluaciones.Controllers
         {
             return View();
         }
+        [HttpGet, AuthorizeRole(Roles = "Administrador")]
+        public ActionResult FormularioEvaluacion()
+        {
+            var Evaluaciones = EvaluacionService.GetAll();
+            ViewBag.Evaluaciones = Evaluaciones;
+
+
+            return View();
+        }
 
         [HttpPost, AuthorizeRole(Roles = "Administrador")]
         public ActionResult GetPregunta(string titulo, string descripcion, bool? Estado)
@@ -35,6 +44,31 @@ namespace Template.MVCApp.Areas.Evaluaciones.Controllers
 
             return JsonOutPut(ResultJson.MensajeDataExito("", Pregunta__));
         }
+
+        [HttpPost, AuthorizeRole(Roles = "Administrador")]
+        public ActionResult VerFormularioEvaluacion(int idEval, bool? Estado)
+        {
+            
+            var Pregunta_ = PreguntaService.VerPreguntasEvaluacion(idEval, Estado);
+
+            var btnAssignEvaluacion = "<a href='javascript:void(0)' class='pl8 pr8 link-action assignevaluacion' title='Gestionar Evaluaciones' data-id='{0}'><i class='icon-tasks'></i></a>";
+            var btnEdit = "<a href='javascript:void(0)' class='pl8 pr8 link-action edit' title='Editar' data-id='{0}'><i class='icon-edit'></i></a>";
+            var btnRemove = "<a href='javascript:void(0)' class='pl8 pr8 link-action remove' title='Borrar' data-id='{0}'><i class='icon-remove'></i></a>";
+
+            var Pregunta__ = Pregunta_.Select(X => new
+            {
+                Id = X.id,
+                X.titulo,
+                X.descripcion,
+                Acciones = string.Format(btnAssignEvaluacion + btnEdit + btnRemove, X.id)
+            }).ToList();
+
+            return JsonOutPut(ResultJson.MensajeDataExito("", Pregunta__));
+        }
+
+
+        
+
 
         [HttpGet, AuthorizeRole(Roles = "Administrador")]
         public ActionResult Form(int? Id = null)

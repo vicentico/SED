@@ -66,7 +66,6 @@
     <Content Include="public\img\duck.jpg" />
     <Content Include="public\img\favicon.png" />
     <Content Include="public\img\fondo1.jpg" />
-    <Content Include="public\img\iconstruye.png" />
     <Content Include="public\img\icon\android-icon-144x144.png" />
     <Content Include="public\img\icon\android-icon-192x192.png" />
     <Content Include="public\img\icon\android-icon-36x36.png" />
@@ -93,14 +92,12 @@
     <Content Include="public\img\icon\ms-icon-150x150.png" />
     <Content Include="public\img\icon\ms-icon-310x310.png" />
     <Content Include="public\img\icon\ms-icon-70x70.png" />
-    <Content Include="public\img\jon_snow.jpg" />
     <Content Include="public\img\loader.gif" />
     <Content Include="public\img\loader.svg" />
     <Content Include="public\img\loginbg.jpg" />
     <Content Include="public\img\logo.png" />
     <Content Include="public\img\logo-educacion-sin-transp.png" />
     <Content Include="public\img\menubg.jpg" />
-    <Content Include="public\img\rick_grimes.png" />
     <Content Include="public\js\application\application.js" />
     <Content Include="public\js\bootgrid\jquery.bootgrid.icons.js" />
     <Content Include="public\js\bootgrid\jquery.bootgrid.js" />
@@ -172,12 +169,13 @@
     <Content Include="Areas\Evaluaciones\Views\Evaluaciones_Empleado\Index.cshtml" />
     <Content Include="Areas\Evaluaciones\Views\Evaluacion\ResponderEvaluacion.cshtml" />
     <Content Include="Areas\Evaluaciones\Views\Evaluacion\EnviarRespuestas.cshtml" />
-    <Content Include="Areas\Evaluaciones\Views\Evaluacion\RegistrarEvaluacion.cshtml" />
+    <Content Include="Areas\Evaluaciones\Views\Evaluacion\RegistroEvaluacion.cshtml" />
     <Content Include="Areas\Evaluaciones\Views\Evaluacion\EnviarEvaluacion.cshtml" />
     <Content Include="Areas\Evaluaciones\Views\Evaluacion\ConsultarRegistroEvaluacion.cshtml" />
     <Content Include="Areas\Evaluaciones\Views\Evaluacion\VerPreguntasEvaluacion.cshtml" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="ClassDiagram2.cd" />
+    <Content Include="Areas\Evaluaciones\Views\Pregunta\FormularioEvaluacion.cshtml" />
     <None Include="Properties\PublishProfiles\memnershiprh - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\memnershiprh - Web Deploy.pubxml" />
   </ItemGroup>

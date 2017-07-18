@@ -65,7 +65,7 @@ namespace Template.Service.DAO
                 if (Empleado == null) throw new Exception("No se pudo <strong>Encontrar</strong> el Empleado para su <strong>Edición</strong>.");
                 var Empleado_ = Dc.Empleado.FirstOrDefault(X => X.nombre.Trim().ToLower() == Nombre.Trim().ToLower() && X.id != Id);
                 if (Empleado_ != null) throw new Exception("No se puede <strong>Editar</strong> el Empleado porque <strong>Ya Existe</strong> otro Rol con el mismo <strong>Nombre</strong>.");
-                if (idEmpleadoJefe != null) Empleado.id_Empleado_Jefe = idEmpleadoJefe;
+                Empleado.id_Empleado_Jefe = idEmpleadoJefe;
                 Empleado.nombre = Nombre.Trim();
                 Empleado.cargo = Cargo.Trim();
                 if (Activo.HasValue) Empleado.activo = Activo.Value;
@@ -76,7 +76,7 @@ namespace Template.Service.DAO
                 role2.Property(X => X.nombre).IsModified = true;
                 role2.Property(X => X.cargo).IsModified = true;
                 role2.Property(X => X.activo).IsModified = true;
-
+                role2.Property(X => X.id_Empleado_Jefe).IsModified = true;
                 var result = Dc.SaveChanges();
 
                 return result > 0;
@@ -145,7 +145,24 @@ namespace Template.Service.DAO
             }
         }
 
+        public static Empleado GetByIdUsuario(string PrincipalIdentity )
+        {
+            if (string.IsNullOrEmpty(PrincipalIdentity)) throw new Exception("Debe especificar la Identidad del Usuario.");
 
+            using (var Dc = new TemplateEntities())
+            {
+                var Usuario_Id = Convert.ToInt32(PrincipalIdentity);
+
+                var Empleado_ = Dc
+                    .Empleado
+                    .FirstOrDefault(X =>
+                        X.id_Usuario == Usuario_Id
+                        && X.activo
+                    );
+
+                return Empleado_;
+            }
+        }
         public static Empleado GetByParent(int idEmpleadoJefe)
         {
             if (idEmpleadoJefe == 0) throw new Exception("Debe especificar el Identificador del Menú Padre.");

@@ -2,9 +2,11 @@
     var Id = Utility.GetRandomId();
     var RolesUnAssigned = ViewBag.RolesUnAssigned;
     var RolesAssigned = ViewBag.RolesAssigned;
+    var IdUser = ViewBag.iduser;
 }
 
 <div id="@Id">
+    <div class="@IdUser"></div>
     <div class="modal-header">
         <h4><i class="icon-tasks mr8 text-danger"></i>Asignar Roles</h4>
         <hr/>
@@ -70,7 +72,7 @@
     $(function () {
         var Roles_ = [];
         var Modal_ = $("#@Id");
-        var Id = $(Modal_).find("#Id");
+        var Id = @IdUser;//$(Modal_).find("#Id");
         var RolesUnAssigned = $(Modal_).find("#RolesUnAssigned");
         var RolesAssigned = $(Modal_).find("#RolesAssigned");
         var BtnAssign = $(Modal_).find("#BtnAssign");
@@ -121,7 +123,7 @@
                         ConvertirParametros: true,
                         ParametrosAjax: {
                             Roles: Roles_.join(","),
-                            UserId: $(Id).val()
+                            UserId:Id// $(Id).val()
                         },
                         Callback: function (Resultado) {
                             if (Resultado && !Resultado.Error && Resultado.Message) {

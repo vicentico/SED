@@ -94,6 +94,20 @@ namespace Template.Service.DAO
             }
         }
 
+        public static List<Evaluacion> GetAll()
+        {
+            using (var Dc = new TemplateEntities())
+            {
+                var Evaluaciones = Dc.Evaluacion.AsQueryable();
+
+                //Evaluaciones = Evaluaciones.Where(x => x.activo == true);
+               
+                var Evaluaciones_ = Evaluaciones.ToList();
+
+                return Evaluaciones_;
+
+            }
+        }
 
         public static bool Remove(int Id)
         {
@@ -122,7 +136,36 @@ namespace Template.Service.DAO
                 return Evaluacion;
             }
         }
-        
+
+
+        public static IEnumerable<Evaluacion> FindByIdEmpleado(int Id, bool? Estado=true)
+        {
+            //using (var Dc = new TemplateEntities())
+            //{
+            //    var Evaluacion = Dc.Evaluacion.Find(Id);
+
+            //    return Evaluacion;
+            //}
+
+            using (var Dc = new TemplateEntities())
+            {
+                var evaluaciones = Dc
+                    .Evaluacion
+                    .Include("Emp_Eval")
+                    .Where(X =>
+                        X.activo == Convert.ToBoolean(Estado)
+                        && X.Emp_Eval.All(y => y.idEmpleadoEvaluador != Id)
+                    )
+                    .ToList();
+
+                return evaluaciones;
+            }
+
+
+        }
+
+
+
         public static List<Evaluacion> GetEvaluacionOthers(int? Id)
         {
             using (var Dc = new TemplateEntities())
